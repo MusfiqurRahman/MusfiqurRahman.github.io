@@ -94,3 +94,29 @@ h1,h2{ color:#003366; }
   margin-top: 16px;
 }
 
+/* Premium button styling for contact form */
+.contact-card form .btn,
+.contact-card form button {
+  background: #0b5ed7;
+  color: #fff;
+  border: 1px solid #0b5ed7;
+  border-radius: 12px;
+  padding: 12px 18px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+
+.contact-card form .btn:hover,
+.contact-card form button:hover {
+  background: #084bb0;
+  transform: translateY(-1px);
+  box-shadow: 0 10px 22px rgba(0,0,0,0.12);
+}
+
+.contact-card form .btn:active,
+.contact-card form button:active {
+  transform: translateY(0px);
+  box-shadow: none;
+}
+
