@@ -2,10 +2,92 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Musfiqur Rahman | Research Portfolio</title>
+  <title>Musfiqur Rahman | Academic Portfolio</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    .hero {
+      display: grid;
+      grid-template-columns: 1.3fr 0.7fr;
+      gap: 24px;
+      align-items: start;
+      margin-top: 10px;
+    }
+    .tagline {
+      font-size: 1.1em;
+      color: #444;
+      margin-top: 6px;
+    }
+    .role {
+      font-size: 1.1em;
+      font-weight: bold;
+      color: #003366;
+      margin-bottom: 6px;
+    }
+    .intro {
+      margin-top: 12px;
+      font-size: 1.05em;
+    }
+    .photo {
+      border: 1px solid #e5e5e5;
+      border-radius: 10px;
+      padding: 12px;
+      text-align: center;
+      background: #fafafa;
+    }
+    .photo img {
+      width: 100%;
+      max-width: 260px;
+      border-radius: 10px;
+      display: block;
+      margin: 0 auto 10px auto;
+    }
+    .photo .caption {
+      font-size: 0.95em;
+      color: #666;
+    }
+    .focus {
+      margin-top: 18px;
+      padding: 16px;
+      border: 1px solid #e5e5e5;
+      border-radius: 10px;
+      background: #ffffff;
+    }
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+    }
+    .btn {
+      display: inline-block;
+      padding: 10px 14px;
+      border-radius: 8px;
+      border: 1px solid #cfe2ff;
+      background: #eaf2ff;
+      color: #003366;
+      font-weight: bold;
+    }
+    .btn:hover { background: #dcebff; }
+
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 10px;
+    }
+    .section {
+      margin-top: 26px;
+    }
+    .divider {
+      margin: 28px 0;
+      border: 0;
+      border-top: 1px solid #eee;
+    }
+  </style>
 </head>
+
 <body>
+
 <header>
   <nav>
     <a class="active" href="index.html">Home</a>
@@ -20,46 +102,78 @@
   </nav>
 </header>
 
-<h1>Musfiqur Rahman</h1>
-<p>
-PhD Researcher in Civil & Environmental Engineering at Villanova University.<br>
-My research focuses on the application of artificial intelligence and machine learning to improve the performance, reliability, and equity of stormwater infrastructure systems, with a particular emphasis on Green Stormwater Infrastructure (GSI).
-</p>
+<div class="role">Civil & Environmental Engineer — Applied AI/ML for Stormwater Systems</div>
 
-<p>
-I develop data-driven models that integrate storm event characteristics, system design parameters, environmental context, and inspection information to forecast GSI performance metrics such as ponding duration and infrastructure risk. My work bridges hydrologic science, urban stormwater management, and applied machine learning to support proactive infrastructure planning, maintenance, and decision-making.
-</p>
+<div class="hero">
+  <div>
+    <h1>Hi, I’m Musfiqur Rahman.</h1>
+    <p class="tagline">
+      PhD Researcher at Villanova University focusing on artificial intelligence and machine learning
+      to improve stormwater infrastructure performance and Green Stormwater Infrastructure (GSI).
+    </p>
 
-<p>
-Through my doctoral research, coursework in advanced machine learning, and collaborative projects, I apply methods including Random Forest, gradient boosting, support vector machines, and deep learning architectures to real-world stormwater and urban hydrology problems. My broader research interests include AI-enabled infrastructure resilience, urban flooding mitigation, and data-driven approaches to sustainable water management.
-</p>
+    <p class="intro">
+      My work develops data-driven models that integrate storm event characteristics, system design parameters,
+      environmental context, and inspection information to forecast GSI performance metrics (e.g., ponding duration)
+      and support proactive maintenance and planning.
+    </p>
 
+    <div class="buttons">
+      <!-- Replace cv.pdf with your actual CV file when you upload it -->
+      <a class="btn" href="cv.pdf" target="_blank">⬇ Download My CV</a>
+      <!-- Replace these links with your real profiles -->
+      <a class="btn" href="https://scholar.google.com" target="_blank">Google Scholar</a>
+      <a class="btn" href="https://www.linkedin.com" target="_blank">LinkedIn</a>
+      <a class="btn" href="https://github.com/MusfiqurRahman" target="_blank">GitHub</a>
+      <a class="btn" href="contact.html">Contact</a>
+    </div>
+  </div>
 
-<h2>Research Interests</h2>
-<ul>
-  <li>Machine learning–based modeling of GSI performance</li>
-  <li>AI-enabled stormwater risk forecasting</li>
-  <li>Urban hydrology, infrastructure resilience, and equity</li>
-</ul>
+  <div class="photo">
+    <!-- Replace profile.jpg with your actual image filename after uploading -->
+    <img src="profile.jpg" alt="Photo of Musfiqur Rahman">
+    <div class="caption">Photo of Musfiqur Rahman</div>
+  </div>
+</div>
 
-<h2>Projects</h2>
-<p>
-<strong>AI-Driven Forecasting of GSI Performance</strong><br>
-Developed and evaluated machine learning models (Random Forest, XGBoost, LSTM) to predict ponding duration using storm event characteristics, system design features, and environmental context.
-</p>
+<div class="focus">
+  <h2>AI for Stormwater & Green Infrastructure Resilience</h2>
+  <p>
+    Developing machine learning frameworks to forecast GSI performance and risk, support condition-informed
+    maintenance, and improve sustainable stormwater planning at scale.
+  </p>
+</div>
 
-<h2>Publications</h2>
-<p>
-(Coming soon)
-</p>
+<div class="section">
+  <h2>About Me</h2>
+  <p>
+    I am a civil and environmental engineering researcher focused on applied AI/ML for stormwater management and
+    green stormwater infrastructure (GSI). I work with monitoring and storm-event data, combine hydrologic and
+    environmental features, and apply machine learning models to generate actionable performance predictions and
+    risk indicators for decision-making.
+  </p>
+  <p>
+    Tools and methods I frequently use include Python, scikit-learn, gradient boosting (e.g., XGBoost/LightGBM),
+    support vector machines, and deep learning architectures, along with stormwater modeling and GIS-derived context
+    variables.
+  </p>
+</div>
 
-<h2>Contact</h2>
-<p>
-Email: mrahma05@villanova.edu<br>
-<a href="#">Google Scholar</a> |
-<a href="#">LinkedIn</a> |
-<a href="https://github.com/MusfiqurRahman">GitHub</a>
-</p>
+<hr class="divider">
+
+<div class="section">
+  <h2>Quick Links</h2>
+  <div class="links">
+    <a href="research.html">Research</a>
+    <a href="projects.html">Projects</a>
+    <a href="publications.html">Publications</a>
+    <a href="certifications.html">Certifications</a>
+  </div>
+</div>
+
+<div class="footer">
+  © 2026 Musfiqur Rahman. All rights reserved.
+</div>
 
 </body>
 </html>
