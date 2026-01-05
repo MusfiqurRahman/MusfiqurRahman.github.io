@@ -150,3 +150,16 @@ h1,h2{ color:#003366; }
   display: block;
 }
 
+/* Normalize icon look */
+.social-icons img{
+  filter: grayscale(100%);
+  opacity: 0.78;
+  transition: transform 0.15s ease, opacity 0.15s ease, filter 0.15s ease;
+}
+
+.social-icons a:hover img{
+  filter: grayscale(0%);
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
