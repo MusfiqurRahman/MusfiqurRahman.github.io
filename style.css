@@ -196,3 +196,28 @@ nav a.active{
   border: 1px solid #cfe2ff;
 }
 
+/* Premium hero spacing + readability */
+.hero{
+  margin-top: 18px;
+  padding: 18px 0 6px 0;
+}
+
+.hero h1{
+  letter-spacing: -0.5px;
+  line-height: 1.15;
+  margin: 6px 0 10px 0;
+}
+
+.tagline, .intro{
+  max-width: 62ch;
+}
+
+.tagline{
+  font-size: 1.08em;
+}
+
+.intro{
+  margin-top: 14px;
+}
+
+
