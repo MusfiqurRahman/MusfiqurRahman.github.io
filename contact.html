@@ -4,39 +4,8 @@
   <meta charset="UTF-8">
   <title>Contact | Musfiqur Rahman</title>
   <link rel="stylesheet" href="style.css">
-  <style>
-    form {
-      max-width: 600px;
-      margin-top: 30px;
-    }
-    label {
-      font-weight: bold;
-      display: block;
-      margin-top: 15px;
-    }
-    input, textarea {
-      width: 100%;
-      padding: 10px;
-      margin-top: 6px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      font-size: 1em;
-    }
-    button {
-      margin-top: 20px;
-      padding: 10px 18px;
-      font-size: 1em;
-      background-color: #0066cc;
-      color: white;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-    button:hover {
-      background-color: #004c99;
-    }
-  </style>
 </head>
+
 <body>
 
 <header>
@@ -55,32 +24,83 @@
 <h1>Contact</h1>
 
 <p>
-For collaboration, supervision, speaking invitations, or research discussions, feel free to contact me using the form below.
+  For collaboration, supervision, speaking invitations, or research discussions,
+  feel free to contact me using the form below.
 </p>
 
-<p>
-<strong>Email:</strong> mrahma05@villanova.edu<br>
-<strong>Affiliation:</strong> Villanova University<br>
-<strong>Research Area:</strong> Civil & Environmental Engineering — Stormwater & Green Infrastructure<br>
-<strong>Google Scholar:</strong> <a href="https://scholar.google.com" target="_blank">View Profile</a><br>
-<strong>LinkedIn:</strong> <a href="https://www.linkedin.com" target="_blank">View Profile</a><br>
-<strong>Location:</strong> Villanova University, Pennsylvania, USA
-</p>
+<div class="contact-grid">
 
-<h2>Contact Form</h2>
+  <!-- LEFT COLUMN: INFO + MAP -->
+  <div class="contact-info">
 
-<form>
-  <label for="name">Your Name</label>
-  <input type="text" id="name" name="name" placeholder="Enter your name">
+    <p><strong>Email:</strong>
+      <a href="mailto:mrahma05@villanova.edu">mrahma05@villanova.edu</a>
+    </p>
 
-  <label for="email">Your Email</label>
-  <input type="email" id="email" name="email" placeholder="Enter your email">
+    <p><strong>Affiliation:</strong>
+      Villanova University
+    </p>
 
-  <label for="message">Your Message</label>
-  <textarea id="message" name="message" rows="6" placeholder="Write your message"></textarea>
+    <p><strong>Research Group:</strong>
+      Villanova Center for Resilient Water Systems (VCRWS)
+    </p>
 
-  <button type="submit">Send Message</button>
-</form>
+    <p><strong>Department:</strong>
+      Civil & Environmental Engineering
+    </p>
+
+    <p><strong>Google Scholar:</strong>
+      <a href="https://scholar.google.com/citations?user=AbCdEfG" target="_blank">
+        View Profile
+      </a>
+    </p>
+
+    <p><strong>LinkedIn:</strong>
+      <a href="https://www.linkedin.com/in/musfiqur-rahman" target="_blank">
+        View Profile
+      </a>
+    </p>
+
+    <p><strong>Location:</strong>
+      Villanova University, Pennsylvania, USA
+    </p>
+
+    <h2 style="margin-top:24px;">Location — Villanova University</h2>
+
+    <div class="contact-map">
+      <iframe
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        src="https://www.google.com/maps?q=Villanova%20University%2C%20Pennsylvania&output=embed">
+      </iframe>
+    </div>
+
+  </div>
+
+  <!-- RIGHT COLUMN: FORM CARD -->
+  <div class="contact-card">
+
+    <h2>Contact Form</h2>
+
+    <!-- Visual form (can be connected later to Formspree / EmailJS) -->
+    <form>
+
+      <label><strong>Your Name</strong></label>
+      <input type="text" placeholder="Enter your name">
+
+      <label><strong>Your Email</strong></label>
+      <input type="email" placeholder="Enter your email">
+
+      <label><strong>Your Message</strong></label>
+      <textarea rows="6" placeholder="Write your message"></textarea>
+
+      <button type="submit" class="btn">Send Message</button>
+
+    </form>
+
+  </div>
+
+</div>
 
 <div class="footer">© Musfiqur Rahman</div>
 
