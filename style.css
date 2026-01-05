@@ -163,3 +163,36 @@ h1,h2{ color:#003366; }
   transform: translateY(-2px);
 }
 
+/* Premium navbar */
+header{
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid #eee;
+}
+
+nav{
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding: 10px 0;
+}
+
+nav a{
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 10px;
+  font-weight: 600;
+}
+
+nav a:hover{
+  background: rgba(0,0,0,0.04);
+}
+
+nav a.active{
+  background: #eaf2ff;
+  border: 1px solid #cfe2ff;
+}
+
