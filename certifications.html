@@ -76,6 +76,13 @@
       transform: translateY(-1px);
     }
 
+    /* Selected highlight */
+    .cert-item.active {
+      background: #fff;
+      border-color: #111;
+      box-shadow: 0 0 0 2px rgba(17,17,17,0.12);
+    }
+
     .cert-item strong {
       display: block;
       font-size: 14.5px;
@@ -121,6 +128,7 @@
       border-radius: 10px;
       cursor: zoom-in;
       transition: opacity 220ms ease, transform 220ms ease;
+      display: block;
     }
 
     .preview-img.is-switching {
@@ -130,6 +138,9 @@
 
     .preview-actions {
       margin-top: 10px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
     }
 
     .btn {
@@ -142,64 +153,119 @@
       font-size: 14px;
     }
 
+    .btn:hover { background: #f2f2f2; }
+
     .btn.primary {
       background: #111;
       color: #fff;
       border-color: #111;
     }
 
-    /* MODAL */
+    .btn.primary:hover { background: #222; }
+
+    @media (max-width: 480px) {
+      .preview-actions .btn { width: 100%; text-align: center; }
+    }
+
+    /* ===== MODAL (zoom + pan) ===== */
     .modal-overlay {
       position: fixed;
       inset: 0;
-      background: rgba(0,0,0,0.72);
+      background: rgba(0,0,0,0.74);
       display: none;
       align-items: center;
       justify-content: center;
       z-index: 9999;
+      padding: 14px;
     }
 
-    .modal-overlay.open {
-      display: flex;
-    }
+    .modal-overlay.open { display: flex; }
 
     .modal {
-      width: min(960px, 100%);
+      width: min(980px, 100%);
       background: #111;
       border-radius: 14px;
       overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.35);
     }
 
     .modal-header {
       display: flex;
       justify-content: space-between;
-      padding: 10px 14px;
-      background: rgba(255,255,255,0.05);
+      align-items: center;
+      gap: 12px;
+      padding: 10px 12px;
+      background: rgba(255,255,255,0.06);
+      border-bottom: 1px solid rgba(255,255,255,0.12);
     }
 
     .modal-header h4 {
       margin: 0;
       color: #fff;
       font-size: 14px;
+      line-height: 1.3;
     }
 
     .modal-close {
-      background: none;
-      border: none;
+      background: rgba(255,255,255,0.10);
+      border: 1px solid rgba(255,255,255,0.18);
       color: #fff;
-      cursor: pointer;
-      font-size: 16px;
-    }
-
-    .modal-body {
-      background: #000;
-      padding: 10px;
-    }
-
-    .modal-body img {
-      width: 100%;
       border-radius: 10px;
-      background: #fff;
+      padding: 7px 10px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .modal-close:hover { background: rgba(255,255,255,0.16); }
+
+    /* Zoom stage */
+    .zoom-stage {
+      position: relative;
+      background: #000;
+      height: min(78vh, 820px);
+      overflow: hidden;
+      touch-action: none; /* required for pinch/pan */
+    }
+
+    .zoom-stage img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(1);
+      transform-origin: center;
+      user-select: none;
+      -webkit-user-drag: none;
+      max-width: none;  /* allow scaling beyond container */
+      max-height: none;
+      width: auto;
+      height: auto;
+    }
+
+    .zoom-toolbar {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      padding: 10px 12px;
+      background: rgba(255,255,255,0.06);
+      border-top: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .zoom-btn {
+      background: rgba(255,255,255,0.10);
+      border: 1px solid rgba(255,255,255,0.18);
+      color: #fff;
+      border-radius: 10px;
+      padding: 8px 10px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .zoom-btn:hover { background: rgba(255,255,255,0.16); }
+
+    @media (max-width: 480px) {
+      .zoom-stage { height: 74vh; }
+      .zoom-btn { width: 100%; text-align: center; }
     }
   </style>
 </head>
@@ -220,7 +286,7 @@
 </header>
 
 <div class="cert-container">
-  <h1 style="text-align:center;">Certifications & Specialized Training</h1>
+  <h1 style="text-align:center;">Certifications &amp; Specialized Training</h1>
 
   <div class="cert-grid">
 
@@ -230,24 +296,24 @@
       <div class="cert-section">
         <h2>Data Science & Machine Learning</h2>
         <ul>
-          <li><button class="cert-item" data-title="Numerical AI Modeling" data-img="certificates/Numerical_AI_Modeling.png">
+          <li><button class="cert-item" type="button" data-title="Numerical AI Modeling" data-img="certificates/Numerical_AI_Modeling.png">
             <strong>Advanced Machine Learning</strong><div class="meta">Graduate-level coursework</div></button></li>
 
-          <li><button class="cert-item" data-title="Data Science" data-img="certificates/data_science.png">
-            <strong>Data Science with Python</strong><div class="meta">NOAMI</div></button></li>
+          <li><button class="cert-item" type="button" data-title="Data Science" data-img="certificates/data_science.png">
+            <strong>Data Science with Python (Beginner to Advanced)</strong><div class="meta">NOAMI</div></button></li>
         </ul>
       </div>
 
       <div class="cert-section">
         <h2>Hydrologic, Stormwater & Flood Modeling</h2>
         <ul>
-          <li><button class="cert-item" data-title="Urban Drainage Modeling" data-img="certificates/urban_drainage.png">
+          <li><button class="cert-item" type="button" data-title="Urban Drainage Modeling" data-img="certificates/urban_drainage.png">
             <strong>Hydrologic & Stormwater Modeling (EPA SWMM)</strong></button></li>
 
-          <li><button class="cert-item" data-title="Urban Flooding" data-img="certificates/urban_flooding.png">
+          <li><button class="cert-item" type="button" data-title="Urban Flooding" data-img="certificates/urban_flooding.png">
             <strong>Integrated Urban Flood Modeling</strong></button></li>
 
-          <li><button class="cert-item" data-title="Rainwater Harvesting" data-img="certificates/rainwater_harvesting.png">
+          <li><button class="cert-item" type="button" data-title="Rainwater Harvesting" data-img="certificates/rainwater_harvesting.png">
             <strong>Rainwater Harvesting</strong></button></li>
         </ul>
       </div>
@@ -255,13 +321,13 @@
       <div class="cert-section">
         <h2>Environmental Modeling & GIS</h2>
         <ul>
-          <li><button class="cert-item" data-title="Environmental Modeling" data-img="certificates/Environmental_modeling.png">
+          <li><button class="cert-item" type="button" data-title="Environmental Modeling" data-img="certificates/Environmental_modeling.png">
             <strong>Environmental Modeling</strong></button></li>
 
-          <li><button class="cert-item" data-title="Water Quality" data-img="certificates/water_quality.png">
+          <li><button class="cert-item" type="button" data-title="Water Quality" data-img="certificates/water_quality.png">
             <strong>Water Quality</strong></button></li>
 
-          <li><button class="cert-item" data-title="Water Hazard" data-img="certificates/water_hazard.png">
+          <li><button class="cert-item" type="button" data-title="Water Hazard" data-img="certificates/water_hazard.png">
             <strong>Water Hazard</strong></button></li>
         </ul>
       </div>
@@ -269,16 +335,16 @@
       <div class="cert-section">
         <h2>Professional Development</h2>
         <ul>
-          <li><button class="cert-item" data-title="Business Communication" data-img="certificates/Business_Communication.png">
-            <strong>Business Communication</strong></button></li>
+          <li><button class="cert-item" type="button" data-title="Business Communication" data-img="certificates/Business_Communication.png">
+            <strong>Business Communication</strong><div class="meta">British Council</div></button></li>
 
-          <li><button class="cert-item" data-title="Project Management" data-img="certificates/project_management.png">
+          <li><button class="cert-item" type="button" data-title="Project Management" data-img="certificates/project_management.png">
             <strong>Project Management</strong></button></li>
 
-          <li><button class="cert-item" data-title="Theoretical Hydrology & Hydraulics" data-img="certificates/theoretical_hydrology_hydraulics.png">
-            <strong>Theoretical Hydrology & Hydraulics</strong></button></li>
+          <li><button class="cert-item" type="button" data-title="Theoretical Hydrology & Hydraulics" data-img="certificates/theoretical_hydrology_hydraulics.png">
+            <strong>Theoretical Hydrology &amp; Hydraulics</strong><div class="meta">IWM (Theoretical Training)</div></button></li>
 
-          <li><button class="cert-item" data-title="ASCE Report Card" data-img="certificates/ASCE_report_card.png">
+          <li><button class="cert-item" type="button" data-title="ASCE Report Card" data-img="certificates/ASCE_report_card.png">
             <strong>ASCE Infrastructure Report Card</strong></button></li>
         </ul>
       </div>
@@ -286,13 +352,15 @@
     </div>
 
     <!-- RIGHT -->
-    <aside class="cert-preview">
+    <aside class="cert-preview" aria-live="polite">
       <h3 id="previewTitle" class="preview-title">Hover or tap a certification</h3>
+
       <div class="preview-img-wrap">
-        <img id="previewImg" class="preview-img" src="certificates/Numerical_AI_Modeling.png">
+        <img id="previewImg" class="preview-img" src="certificates/Numerical_AI_Modeling.png" alt="Certificate preview" title="Click to enlarge">
       </div>
+
       <div class="preview-actions">
-        <button id="openModalBtn" class="btn primary">Click to enlarge</button>
+        <button id="openModalBtn" class="btn primary" type="button">Click to enlarge</button>
       </div>
     </aside>
 
@@ -302,55 +370,214 @@
 <div class="footer">© Musfiqur Rahman</div>
 
 <!-- MODAL -->
-<div class="modal-overlay" id="modalOverlay">
-  <div class="modal">
+<div class="modal-overlay" id="modalOverlay" aria-hidden="true">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
     <div class="modal-header">
       <h4 id="modalTitle">Certificate</h4>
-      <button class="modal-close" id="modalCloseBtn">✕</button>
+      <button class="modal-close" id="modalCloseBtn" type="button">Close ✕</button>
     </div>
-    <div class="modal-body">
-      <img id="modalImg">
+
+    <div class="zoom-stage" id="zoomStage">
+      <img id="zoomImg" src="certificates/Numerical_AI_Modeling.png" alt="Certificate enlarged">
+    </div>
+
+    <div class="zoom-toolbar">
+      <button class="zoom-btn" id="zoomInBtn" type="button">Zoom +</button>
+      <button class="zoom-btn" id="zoomOutBtn" type="button">Zoom −</button>
+      <button class="zoom-btn" id="resetBtn" type="button">Reset</button>
     </div>
   </div>
 </div>
 
 <script>
+(function () {
   const items = document.querySelectorAll(".cert-item");
-  const img = document.getElementById("previewImg");
-  const title = document.getElementById("previewTitle");
+  const previewImg = document.getElementById("previewImg");
+  const previewTitle = document.getElementById("previewTitle");
 
-  const modal = document.getElementById("modalOverlay");
-  const modalImg = document.getElementById("modalImg");
+  const modalOverlay = document.getElementById("modalOverlay");
   const modalTitle = document.getElementById("modalTitle");
+  const zoomStage = document.getElementById("zoomStage");
+  const zoomImg = document.getElementById("zoomImg");
 
-  let currentImg = img.src;
-  let currentTitle = title.textContent;
+  const openModalBtn = document.getElementById("openModalBtn");
+  const modalCloseBtn = document.getElementById("modalCloseBtn");
 
-  function swap(item) {
-    currentImg = item.dataset.img;
-    currentTitle = item.dataset.title;
-    title.textContent = currentTitle;
-    img.classList.add("is-switching");
-    setTimeout(() => {
-      img.src = currentImg;
-      img.classList.remove("is-switching");
-    }, 180);
+  const zoomInBtn = document.getElementById("zoomInBtn");
+  const zoomOutBtn = document.getElementById("zoomOutBtn");
+  const resetBtn = document.getElementById("resetBtn");
+
+  // Current selection
+  let currentImg = previewImg.src;
+  let currentTitle = "Certificate";
+
+  // Zoom state
+  let scale = 1;
+  let tx = 0;
+  let ty = 0;
+
+  // Pointer tracking for pinch
+  const pointers = new Map();
+  let startDist = 0;
+  let startScale = 1;
+  let lastPanX = 0;
+  let lastPanY = 0;
+
+  function applyTransform() {
+    zoomImg.style.transform =
+      `translate(calc(-50% + ${tx}px), calc(-50% + ${ty}px)) scale(${scale})`;
   }
 
-  items.forEach(i => {
-    i.addEventListener("mouseenter", () => swap(i));
-    i.addEventListener("click", () => swap(i));
+  function resetZoom() {
+    scale = 1; tx = 0; ty = 0;
+    applyTransform();
+  }
+
+  function animateSwap(newSrc) {
+    previewImg.classList.add("is-switching");
+    const pre = new Image();
+    pre.onload = () => {
+      previewImg.src = newSrc;
+      requestAnimationFrame(() => previewImg.classList.remove("is-switching"));
+    };
+    pre.src = newSrc;
+  }
+
+  function setActive(item) {
+    items.forEach(btn => btn.classList.remove("active"));
+    item.classList.add("active");
+  }
+
+  function updatePreview(item) {
+    setActive(item);
+
+    currentTitle = item.dataset.title || "Certificate";
+    currentImg = item.dataset.img || currentImg;
+
+    previewTitle.textContent = currentTitle;
+    animateSwap(currentImg);
+  }
+
+  // Hover + click update
+  items.forEach(item => {
+    item.addEventListener("mouseenter", () => updatePreview(item));
+    item.addEventListener("click", () => updatePreview(item));
+    item.addEventListener("focus", () => updatePreview(item));
   });
 
-  document.getElementById("openModalBtn").onclick = () => {
-    modal.classList.add("open");
-    modalImg.src = currentImg;
-    modalTitle.textContent = currentTitle;
-  };
+  // Default select first item
+  if (items.length) {
+    currentTitle = items[0].dataset.title || "Certificate";
+    currentImg = items[0].dataset.img || currentImg;
+    previewTitle.textContent = currentTitle;
+    previewImg.src = currentImg;
+    items[0].classList.add("active");
+  }
 
-  document.getElementById("modalCloseBtn").onclick = () => modal.classList.remove("open");
-  modal.onclick = e => e.target === modal && modal.classList.remove("open");
-  document.addEventListener("keydown", e => e.key === "Escape" && modal.classList.remove("open"));
+  function openModal() {
+    modalOverlay.classList.add("open");
+    modalOverlay.setAttribute("aria-hidden", "false");
+    modalTitle.textContent = currentTitle;
+    zoomImg.src = currentImg;
+    document.body.style.overflow = "hidden";
+    resetZoom();
+  }
+
+  function closeModal() {
+    modalOverlay.classList.remove("open");
+    modalOverlay.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+    pointers.clear();
+  }
+
+  // Open modal by clicking preview image or button
+  previewImg.addEventListener("click", openModal);
+  openModalBtn.addEventListener("click", openModal);
+
+  modalCloseBtn.addEventListener("click", closeModal);
+  modalOverlay.addEventListener("click", (e) => {
+    if (e.target === modalOverlay) closeModal();
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeModal();
+  });
+
+  // Toolbar zoom
+  zoomInBtn.addEventListener("click", () => {
+    scale = Math.min(6, scale * 1.2);
+    applyTransform();
+  });
+
+  zoomOutBtn.addEventListener("click", () => {
+    scale = Math.max(1, scale / 1.2);
+    applyTransform();
+  });
+
+  resetBtn.addEventListener("click", resetZoom);
+
+  // Pinch + Pan (Pointer Events)
+  zoomStage.addEventListener("pointerdown", (e) => {
+    zoomStage.setPointerCapture(e.pointerId);
+    pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
+
+    // Start pan baseline (one finger)
+    if (pointers.size === 1) {
+      lastPanX = e.clientX;
+      lastPanY = e.clientY;
+    }
+
+    // Start pinch baseline (two fingers)
+    if (pointers.size === 2) {
+      const pts = Array.from(pointers.values());
+      startDist = Math.hypot(pts[0].x - pts[1].x, pts[0].y - pts[1].y);
+      startScale = scale;
+    }
+  });
+
+  zoomStage.addEventListener("pointermove", (e) => {
+    if (!pointers.has(e.pointerId)) return;
+
+    pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
+
+    if (pointers.size === 1) {
+      // Pan
+      const dx = e.clientX - lastPanX;
+      const dy = e.clientY - lastPanY;
+      lastPanX = e.clientX;
+      lastPanY = e.clientY;
+
+      tx += dx;
+      ty += dy;
+      applyTransform();
+    }
+
+    if (pointers.size === 2) {
+      // Pinch zoom
+      const pts = Array.from(pointers.values());
+      const dist = Math.hypot(pts[0].x - pts[1].x, pts[0].y - pts[1].y);
+      if (startDist > 0) {
+        const ratio = dist / startDist;
+        scale = Math.min(6, Math.max(1, startScale * ratio));
+        applyTransform();
+      }
+    }
+  });
+
+  function endPointer(e) {
+    pointers.delete(e.pointerId);
+
+    // If pinch ended, reset pinch baselines
+    if (pointers.size < 2) {
+      startDist = 0;
+      startScale = scale;
+    }
+  }
+
+  zoomStage.addEventListener("pointerup", endPointer);
+  zoomStage.addEventListener("pointercancel", endPointer);
+  zoomStage.addEventListener("pointerleave", endPointer);
+})();
 </script>
 
 </body>
