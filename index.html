@@ -242,6 +242,32 @@
   transform: translateY(-5px); /* was -3px */
 }
 
+    /* ===== Mobile optimization ===== */
+@media (max-width: 480px) {
+
+  /* Slightly smaller icons on phones */
+  .social-icons img {
+    width: 46px;
+    height: 46px;
+  }
+
+  .social-icons {
+    gap: 14px;
+  }
+
+  /* Stack CTA content and make button full-width */
+  .cta {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .cta .btn.primary {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+
   </style>
 </head>
 
