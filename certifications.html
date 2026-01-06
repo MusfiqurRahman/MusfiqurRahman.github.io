@@ -2,34 +2,204 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Certifications | Musfiqur Rahman</title>
   <link rel="stylesheet" href="style.css">
 
   <style>
     .cert-container {
-      max-width: 900px;
-      margin: 40px auto;
+      max-width: 1100px;
+      margin: 30px auto;
+      padding: 0 18px 30px;
+    }
+
+    .cert-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 22px;
+      align-items: start;
+      margin-top: 18px;
+    }
+
+    @media (max-width: 900px) {
+      .cert-grid { grid-template-columns: 1fr; }
+    }
+
+    /* LEFT PANEL */
+    .cert-list {
+      border: 1px solid #e2e2e2;
+      border-radius: 14px;
+      padding: 16px;
+      background: #fff;
     }
 
     .cert-section {
-      margin-bottom: 35px;
+      margin-bottom: 18px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .cert-section:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
     }
 
     .cert-section h2 {
-      font-size: 20px;
-      margin-bottom: 10px;
-      border-bottom: 2px solid #ddd;
-      padding-bottom: 5px;
+      font-size: 18px;
+      margin: 0 0 10px;
+      color: #111;
     }
 
     .cert-section ul {
-      list-style-type: disc;
-      padding-left: 25px;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 8px;
     }
 
-    .cert-section li {
-      margin-bottom: 8px;
+    .cert-item {
+      width: 100%;
+      text-align: left;
+      cursor: pointer;
+      border: 1px solid #eee;
+      background: #fafafa;
+      border-radius: 12px;
+      padding: 10px 12px;
+      transition: background 0.15s ease, transform 0.15s ease, border-color 0.15s ease;
+    }
+
+    .cert-item:hover {
+      background: #f3f3f3;
+      border-color: #ddd;
+      transform: translateY(-1px);
+    }
+
+    .cert-item strong {
+      display: block;
+      font-size: 14.5px;
+      color: #111;
+    }
+
+    .cert-item .meta {
+      font-size: 13px;
+      color: #555;
+      margin-top: 2px;
+    }
+
+    /* RIGHT PANEL */
+    .cert-preview {
+      position: sticky;
+      top: 16px;
+      border: 1px solid #e2e2e2;
+      border-radius: 14px;
+      padding: 14px;
+      background: #fbfbfb;
+    }
+
+    @media (max-width: 900px) {
+      .cert-preview { position: static; }
+    }
+
+    .preview-title {
       font-size: 16px;
+      margin: 0 0 10px;
+      color: #111;
+    }
+
+    .preview-img-wrap {
+      border: 1px solid #e6e6e6;
+      border-radius: 12px;
+      background: #fff;
+      padding: 10px;
+      overflow: hidden;
+    }
+
+    .preview-img {
+      width: 100%;
+      border-radius: 10px;
+      cursor: zoom-in;
+      transition: opacity 220ms ease, transform 220ms ease;
+    }
+
+    .preview-img.is-switching {
+      opacity: 0.2;
+      transform: scale(0.985);
+    }
+
+    .preview-actions {
+      margin-top: 10px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 10px 12px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      background: #fff;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .btn.primary {
+      background: #111;
+      color: #fff;
+      border-color: #111;
+    }
+
+    /* MODAL */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.72);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+
+    .modal-overlay.open {
+      display: flex;
+    }
+
+    .modal {
+      width: min(960px, 100%);
+      background: #111;
+      border-radius: 14px;
+      overflow: hidden;
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 14px;
+      background: rgba(255,255,255,0.05);
+    }
+
+    .modal-header h4 {
+      margin: 0;
+      color: #fff;
+      font-size: 14px;
+    }
+
+    .modal-close {
+      background: none;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .modal-body {
+      background: #000;
+      padding: 10px;
+    }
+
+    .modal-body img {
+      width: 100%;
+      border-radius: 10px;
+      background: #fff;
     }
   </style>
 </head>
@@ -49,53 +219,139 @@
   </nav>
 </header>
 
-<h1 style="text-align:center;">Certifications & Specialized Training</h1>
-
 <div class="cert-container">
+  <h1 style="text-align:center;">Certifications & Specialized Training</h1>
 
-  <!-- Core Technical Training -->
-  <div class="cert-section">
-    <h2>Data Science & Machine Learning</h2>
-    <ul>
-      <li><strong>Advanced Machine Learning</strong> — Graduate-level coursework, Villanova University</li>
-      <li><strong>Data Science with Python (Beginner to Advanced)</strong> — NOAMI</li>
-    </ul>
+  <div class="cert-grid">
+
+    <!-- LEFT -->
+    <div class="cert-list">
+
+      <div class="cert-section">
+        <h2>Data Science & Machine Learning</h2>
+        <ul>
+          <li><button class="cert-item" data-title="Numerical AI Modeling" data-img="certificates/Numerical_AI_Modeling.png">
+            <strong>Advanced Machine Learning</strong><div class="meta">Graduate-level coursework</div></button></li>
+
+          <li><button class="cert-item" data-title="Data Science" data-img="certificates/data_science.png">
+            <strong>Data Science with Python</strong><div class="meta">NOAMI</div></button></li>
+        </ul>
+      </div>
+
+      <div class="cert-section">
+        <h2>Hydrologic, Stormwater & Flood Modeling</h2>
+        <ul>
+          <li><button class="cert-item" data-title="Urban Drainage Modeling" data-img="certificates/urban_drainage.png">
+            <strong>Hydrologic & Stormwater Modeling (EPA SWMM)</strong></button></li>
+
+          <li><button class="cert-item" data-title="Urban Flooding" data-img="certificates/urban_flooding.png">
+            <strong>Integrated Urban Flood Modeling</strong></button></li>
+
+          <li><button class="cert-item" data-title="Rainwater Harvesting" data-img="certificates/rainwater_harvesting.png">
+            <strong>Rainwater Harvesting</strong></button></li>
+        </ul>
+      </div>
+
+      <div class="cert-section">
+        <h2>Environmental Modeling & GIS</h2>
+        <ul>
+          <li><button class="cert-item" data-title="Environmental Modeling" data-img="certificates/Environmental_modeling.png">
+            <strong>Environmental Modeling</strong></button></li>
+
+          <li><button class="cert-item" data-title="Water Quality" data-img="certificates/water_quality.png">
+            <strong>Water Quality</strong></button></li>
+
+          <li><button class="cert-item" data-title="Water Hazard" data-img="certificates/water_hazard.png">
+            <strong>Water Hazard</strong></button></li>
+        </ul>
+      </div>
+
+      <div class="cert-section">
+        <h2>Professional Development</h2>
+        <ul>
+          <li><button class="cert-item" data-title="Business Communication" data-img="certificates/Business_Communication.png">
+            <strong>Business Communication</strong></button></li>
+
+          <li><button class="cert-item" data-title="Project Management" data-img="certificates/project_management.png">
+            <strong>Project Management</strong></button></li>
+
+          <li><button class="cert-item" data-title="Theoretical Hydrology & Hydraulics" data-img="certificates/theoretical_hydrology_hydraulics.png">
+            <strong>Theoretical Hydrology & Hydraulics</strong></button></li>
+
+          <li><button class="cert-item" data-title="ASCE Report Card" data-img="certificates/ASCE_report_card.png">
+            <strong>ASCE Infrastructure Report Card</strong></button></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- RIGHT -->
+    <aside class="cert-preview">
+      <h3 id="previewTitle" class="preview-title">Hover or tap a certification</h3>
+      <div class="preview-img-wrap">
+        <img id="previewImg" class="preview-img" src="certificates/Numerical_AI_Modeling.png">
+      </div>
+      <div class="preview-actions">
+        <button id="openModalBtn" class="btn primary">Click to enlarge</button>
+      </div>
+    </aside>
+
   </div>
-
-  <!-- Hydrology / Stormwater -->
-  <div class="cert-section">
-    <h2>Hydrologic, Stormwater & Flood Modeling</h2>
-    <ul>
-      <li><strong>Hydrologic and Stormwater Modeling (EPA SWMM)</strong></li>
-      <li><strong>Integrated Urban Flood Modeling (MIKE+ Urban Flood)</strong> — DHI</li>
-      <li><strong>Urban Drainage Modeling (MIKE+ CS / MIKE 1D)</strong> — DHI</li>
-      
-    </ul>
-  </div>
-
-  <!-- Environmental / GIS -->
-  <div class="cert-section">
-    <h2>Environmental Modeling & GIS</h2>
-    <ul>
-      <li><strong>AERMOD Air Quality Dispersion Modeling</strong> — Lakes Environmental</li>
-      <li><strong>D-Emissions Modeling (Source-Based Emissions Assessment)</strong> — Deltares</li>
-      <li><strong>Advanced ArcGIS Training</strong> — Institute of Water Modelling (IWM), Dhaka</li>
-      <li><strong>Water Distribution Network Modeling (MIKE+ WD)</strong> — DHI</li>
-    </ul>
-  </div>
-
-  <!-- Professional Skills -->
-  <div class="cert-section">
-    <h2>Professional Development</h2>
-    <ul>
-      <li><strong>Business Communication</strong> — British Council</li>
-      <li><strong>Introduction to Modeling Tools (Theoretical Training)</strong> — Institute of Water Modelling (IWM)</li>
-    </ul>
-  </div>
-
 </div>
 
 <div class="footer">© Musfiqur Rahman</div>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal">
+    <div class="modal-header">
+      <h4 id="modalTitle">Certificate</h4>
+      <button class="modal-close" id="modalCloseBtn">✕</button>
+    </div>
+    <div class="modal-body">
+      <img id="modalImg">
+    </div>
+  </div>
+</div>
+
+<script>
+  const items = document.querySelectorAll(".cert-item");
+  const img = document.getElementById("previewImg");
+  const title = document.getElementById("previewTitle");
+
+  const modal = document.getElementById("modalOverlay");
+  const modalImg = document.getElementById("modalImg");
+  const modalTitle = document.getElementById("modalTitle");
+
+  let currentImg = img.src;
+  let currentTitle = title.textContent;
+
+  function swap(item) {
+    currentImg = item.dataset.img;
+    currentTitle = item.dataset.title;
+    title.textContent = currentTitle;
+    img.classList.add("is-switching");
+    setTimeout(() => {
+      img.src = currentImg;
+      img.classList.remove("is-switching");
+    }, 180);
+  }
+
+  items.forEach(i => {
+    i.addEventListener("mouseenter", () => swap(i));
+    i.addEventListener("click", () => swap(i));
+  });
+
+  document.getElementById("openModalBtn").onclick = () => {
+    modal.classList.add("open");
+    modalImg.src = currentImg;
+    modalTitle.textContent = currentTitle;
+  };
+
+  document.getElementById("modalCloseBtn").onclick = () => modal.classList.remove("open");
+  modal.onclick = e => e.target === modal && modal.classList.remove("open");
+  document.addEventListener("keydown", e => e.key === "Escape" && modal.classList.remove("open"));
+</script>
 
 </body>
 </html>
