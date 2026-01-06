@@ -1,153 +1,201 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Musfiqur Rahman | Academic Portfolio</title>
-  <meta name="description" content="Musfiqur Rahman is a PhD researcher at Villanova University specializing in artificial intelligence and machine learning applications for green stormwater infrastructure, urban hydrology, and infrastructure resilience.">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Musfiqur Rahman | PhD Researcher</title>
   <link rel="stylesheet" href="style.css">
 
   <style>
+    /* Page layout helpers (works even if style.css is minimal) */
+    .container {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 30px 18px;
+    }
+
     .hero {
       display: grid;
-      grid-template-columns: 1.3fr 0.7fr;
-      gap: 24px;
-      align-items: start;
-      margin-top: 10px;
-    }
-
-    /* Top identity block */
-    .identity {
-      margin-top: 14px;
-      padding: 14px 16px;
-      border: 1px solid #e9e9e9;
-      border-radius: 12px;
-      background: #fbfbfb;
-    }
-    .role {
-      font-size: 1.05em;
-      font-weight: 800;
-      color: #003366;
-      letter-spacing: 0.2px;
-      margin-bottom: 8px;
-    }
-    .identity .name {
-      font-size: 1.05em;
-      color: #333;
-      margin: 0;
-      line-height: 1.45;
-    }
-
-    .tagline {
-      font-size: 1.08em;
-      color: #444;
-      margin-top: 8px;
-      line-height: 1.6;
-    }
-    .intro {
-      margin-top: 12px;
-      font-size: 1.05em;
-      line-height: 1.7;
-      color: #333;
-    }
-
-    .photo {
-      border: 1px solid #e5e5e5;
-      border-radius: 12px;
-      padding: 14px;
-      text-align: center;
-      background: #fafafa;
-    }
-    .photo img {
-      width: 100%;
-      max-width: 260px;
-      border-radius: 12px;
-      display: block;
-      margin: 0 auto 10px auto;
-    }
-    .photo .caption {
-      font-size: 0.95em;
-      color: #666;
-    }
-
-    /* CV button only (under photo) */
-    .cv-btn {
-      display: inline-block;
-      margin-top: 12px;
-      padding: 10px 14px;
-      border-radius: 10px;
-      border: 1px solid #cfe2ff;
-      background: #eaf2ff;
-      color: #003366;
-      font-weight: 800;
-      text-decoration: none;
-    }
-    .cv-btn:hover { background: #dcebff; }
-
-    /* Featured “focus” card */
-    .focus {
-      margin-top: 18px;
-      padding: 18px 18px;
-      border-radius: 14px;
-      border: 1px solid #e6eefc;
-      background: linear-gradient(180deg, #f6f9ff 0%, #ffffff 100%);
-    }
-    .focus h2 {
-      margin-top: 0;
-      margin-bottom: 8px;
-      color: #003366;
-    }
-    .focus p {
-      margin: 0;
-      color: #333;
-      line-height: 1.7;
-      font-size: 1.03em;
-    }
-
-    .section { margin-top: 26px; }
-    .divider {
-      margin: 28px 0;
-      border: 0;
-      border-top: 1px solid #eee;
-    }
-
-    .links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 10px;
-    }
-
-    /* Social icons: remove underline + spacing improvements */
-    .social-icons {
-      margin-top: 26px;
-      text-align: center;
-      display: flex;
-      justify-content: center;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-    .social-icons a {
-      text-decoration: none !important;
-      border-bottom: none !important;
-      display: inline-flex;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 28px;
       align-items: center;
-      justify-content: center;
-      padding: 6px;
+      margin-top: 10px;
+    }
+
+    @media (max-width: 800px) {
+      .hero { grid-template-columns: 1fr; }
+      .hero-right { order: -1; }
+    }
+
+    .hero h1 {
+      margin: 0 0 8px;
+      font-size: 34px;
+      letter-spacing: 0.2px;
+    }
+
+    .subtitle {
+      margin: 0 0 14px;
+      font-size: 16px;
+      color: #444;
+      line-height: 1.4;
+    }
+
+    .lead {
+      margin: 0 0 18px;
+      font-size: 16px;
+      color: #333;
+      line-height: 1.7;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 10px 14px;
+      border: 1px solid #ccc;
       border-radius: 10px;
+      text-decoration: none;
+      color: #111;
+      background: #fafafa;
+      font-size: 14px;
     }
-    .social-icons img {
-      width: 44px;
-      height: 44px;
-      object-fit: contain;
-      filter: grayscale(100%);
-      opacity: 0.78;
-      transition: all 0.25s ease;
-      display: block;
+
+    .btn:hover {
+      background: #f2f2f2;
     }
-    .social-icons a:hover img {
-      filter: grayscale(0%);
-      opacity: 1;
-      transform: translateY(-3px);
+
+    .btn.primary {
+      border-color: #111;
+      background: #111;
+      color: #fff;
+    }
+
+    .btn.primary:hover {
+      background: #222;
+    }
+
+    .hero-right {
+      text-align: center;
+    }
+
+    .profile-pic {
+      width: 210px;
+      height: 210px;
+      object-fit: cover;
+      border-radius: 18px;
+      border: 1px solid #ddd;
+      background: #f7f7f7;
+    }
+
+    .affil {
+      margin-top: 10px;
+      font-size: 13px;
+      color: #555;
+      line-height: 1.4;
+    }
+
+    .section {
+      margin-top: 34px;
+    }
+
+    .section h2 {
+      margin: 0 0 12px;
+      font-size: 20px;
+      border-bottom: 2px solid #e2e2e2;
+      padding-bottom: 6px;
+    }
+
+    .impact-box {
+      border: 1px solid #ddd;
+      background: #fbfbfb;
+      border-radius: 14px;
+      padding: 16px 16px 10px;
+    }
+
+    .impact-box ul {
+      margin: 10px 0 0;
+      padding-left: 18px;
+    }
+
+    .impact-box li {
+      margin-bottom: 8px;
+      line-height: 1.5;
+      color: #333;
+      font-size: 15px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 12px;
+    }
+
+    @media (max-width: 900px) {
+      .cards { grid-template-columns: 1fr; }
+    }
+
+    .card {
+      border: 1px solid #ddd;
+      border-radius: 14px;
+      padding: 14px;
+      background: #fff;
+    }
+
+    .card h3 {
+      margin: 0 0 6px;
+      font-size: 16px;
+    }
+
+    .card p {
+      margin: 0;
+      color: #444;
+      line-height: 1.6;
+      font-size: 14.5px;
+    }
+
+    .links-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .pill {
+      display: inline-block;
+      padding: 8px 12px;
+      border: 1px solid #ddd;
+      border-radius: 999px;
+      text-decoration: none;
+      color: #111;
+      background: #fafafa;
+      font-size: 14px;
+    }
+
+    .pill:hover { background: #f2f2f2; }
+
+    .cta {
+      margin-top: 30px;
+      padding: 16px;
+      border: 1px solid #ddd;
+      border-radius: 14px;
+      background: #fbfbfb;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .cta p {
+      margin: 0;
+      color: #333;
+      line-height: 1.6;
     }
   </style>
 </head>
@@ -167,112 +215,108 @@
   </nav>
 </header>
 
-<!-- Identity block (top of page) -->
-<div class="identity">
-  <div class="role">Civil & Environmental Engineer</div>
-  <p class="name">
-    <strong>Musfiqur Rahman</strong><br>
-    PhD Researcher, Civil & Environmental Engineering<br>
-    Villanova University, USA
-  </p>
-</div>
+<div class="container">
 
-<div class="hero">
-  <!-- Left: Intro text -->
-  <div>
-    <h1>Hi, I’m Musfiqur Rahman.</h1>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-left">
+      <h1>Musfiqur Rahman</h1>
+      <p class="subtitle">
+        PhD Researcher | AI/ML for Stormwater & Green Stormwater Infrastructure (GSI) Performance | Villanova University
+      </p>
 
-    <p class="tagline">
-      PhD Researcher at Villanova University focusing on artificial intelligence and machine learning
-      to improve stormwater infrastructure performance and Green Stormwater Infrastructure (GSI).
+      <p class="lead">
+        I develop data-driven methods to evaluate and forecast green stormwater infrastructure performance by integrating
+        monitoring data, hydrologic modeling, and machine learning. My work supports risk-informed maintenance and planning
+        to improve urban flood resilience and water quality.
+      </p>
+
+      <div class="hero-actions">
+        <a class="btn primary" href="contact.html">Contact</a>
+        <a class="btn" href="publications.html">Publications</a>
+        <a class="btn" href="projects.html">Projects</a>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <img class="profile-pic" src="profile.jpg" alt="Musfiqur Rahman portrait">
+      <div class="affil">
+        Civil & Environmental Engineering<br>
+        Villanova University • Pennsylvania, USA
+      </div>
+    </div>
+  </section>
+
+  <!-- IMPACT -->
+  <section class="section">
+    <h2>Impact & Relevance</h2>
+    <div class="impact-box">
+      <ul>
+        <li><strong>Urban resilience:</strong> supports proactive screening and maintenance prioritization for stormwater assets to reduce flood and nuisance ponding risk.</li>
+        <li><strong>Decision support:</strong> integrates monitoring, modeling (e.g., SWMM), and machine learning to forecast performance and classify risk.</li>
+        <li><strong>Scalable methods:</strong> designed for transferability across municipalities using environmental context (land cover/land use) and community vulnerability indicators.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- WHAT I WORK ON -->
+  <section class="section">
+    <h2>What I Work On</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Performance Forecasting</h3>
+        <p>
+          Develop machine-learning models to predict ponding duration and drawdown behavior under varied storm events using observed and simulated datasets.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>City-Scale Context & Equity</h3>
+        <p>
+          Quantify how land cover, land use, and social vulnerability relate to GSI siting patterns and performance risk across diverse urban environments.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Risk-Informed Management</h3>
+        <p>
+          Combine predicted performance with condition and sensitivity indicators to support inspection-informed risk alerts and maintenance decision-making.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SELECTED OUTPUTS -->
+  <section class="section">
+    <h2>Selected Outputs</h2>
+    <p class="lead" style="margin-bottom: 8px;">
+      Quick access to research products and supporting materials.
     </p>
 
-    <p class="intro">
-      My research builds upon prior professional experience supporting large-scale water resources and
-      infrastructure projects, extending this work through artificial intelligence and machine learning
-      to improve stormwater system performance and resilience in the United States.
+    <div class="links-row">
+      <!-- Replace the # links with your actual URLs (recommended) -->
+      <a class="pill" href="publications.html">Publications</a>
+      <a class="pill" href="projects.html">Projects</a>
+      <a class="pill" href="membership.html">Professional Memberships</a>
+      <a class="pill" href="certifications.html">Certifications & Training</a>
+      <!-- Optional external links (add if you have them) -->
+      <!-- <a class="pill" href="https://scholar.google.com/citations?user=YOURID" target="_blank" rel="noopener noreferrer">Google Scholar</a> -->
+      <!-- <a class="pill" href="https://orcid.org/YOUR-ORCID" target="_blank" rel="noopener noreferrer">ORCID</a> -->
+      <!-- <a class="pill" href="https://github.com/YOURUSERNAME" target="_blank" rel="noopener noreferrer">GitHub</a> -->
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <p>
+      For research collaboration, academic opportunities, or stormwater modeling and data-science roles,
+      feel free to reach out.
     </p>
-  </div>
+    <a class="btn primary" href="contact.html">Get in touch</a>
+  </section>
 
-  <!-- Right: Photo + CV button -->
-  <div class="photo">
-    <img src="profile.jpg" alt="Musfiqur Rahman">
-    <div class="caption">Musfiqur Rahman</div>
-
-    <!-- CV button under photo only -->
-    <a class="cv-btn" href="cv.pdf" target="_blank">⬇ Download My CV</a>
-  </div>
 </div>
 
-<!-- Featured section -->
-<div class="focus">
-  <h2>AI for Stormwater & Green Infrastructure Resilience</h2>
-  <p>
-    Developing machine learning frameworks to forecast GSI performance and risk, support condition-informed
-    maintenance, and improve sustainable stormwater planning at scale.
-  </p>
-</div>
-
-<!-- About Me (ONLY what you requested) -->
-<div class="section">
-  <h2>About Me</h2>
-  <p>
-    I am a civil and environmental engineering researcher focused on applied AI/ML for stormwater management and
-    green stormwater infrastructure (GSI). I work with monitoring and storm-event data, combine hydrologic and
-    environmental features, and apply machine learning models to generate actionable performance predictions and
-    risk indicators for decision-making.
-  </p>
-
-  <p>
-    Tools and methods I frequently use include Python for data processing and machine learning (e.g., XGBoost/LightGBM,
-    support vector machines, and deep learning architectures), process-based hydrologic and hydraulic modeling using
-    EPA SWMM, HEC-HMS, and HEC-RAS, and spatial analysis with ArcGIS and GIS-derived context variables to integrate
-    physical system behavior with data-driven insights.
-  </p>
-</div>
-
-<hr class="divider">
-
-<div class="section">
-  <h2>Quick Links</h2>
-  <div class="links">
-    <a href="research.html">Research</a>
-    <a href="projects.html">Projects</a>
-    <a href="publications.html">Publications</a>
-    <a href="certifications.html">Certifications</a>
-  </div>
-</div>
-
-<!-- Social icons (no underline + better spacing) -->
-<div class="social-icons">
-  <a href="https://scholar.google.com/citations?user=E3F5M_8AAAAJ&hl=en" target="_blank" aria-label="Google Scholar">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Google_Scholar_logo.svg" alt="Google Scholar">
-  </a>
-
-  <a href="https://www.linkedin.com/in/musfiqur37/" target="_blank" aria-label="LinkedIn">
-    <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn">
-  </a>
-
-  <a href="https://www.researchgate.net/profile/Musfiqur-Rahman-20?ev=hdr_xprf" target="_blank" aria-label="ResearchGate">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/ResearchGate_icon_SVG.svg" alt="ResearchGate">
-  </a>
-
-  <a href="https://villanova.academia.edu/MusfiqurRahman" target="_blank" aria-label="Academia.edu">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/66/Academia-logo-2021.svg" alt="Academia.edu">
-  </a>
-
-  <a href="https://github.com/MusfiqurRahman" target="_blank" aria-label="GitHub">
-    <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub">
-  </a>
-
-  <a href="https://orcid.org/0009-0002-9865-6739" target="_blank" aria-label="ORCID">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/0/06/ORCID_iD.svg" alt="ORCID">
-  </a>
-</div>
-
-<div class="footer">
-  © 2026 Musfiqur Rahman. All rights reserved.
-</div>
-
+<div class="footer">© Musfiqur Rahman</div>
 </body>
 </html>
