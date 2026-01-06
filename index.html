@@ -121,69 +121,18 @@
       font-size: 15px;
     }
 
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-      margin-top: 12px;
-    }
-
-    @media (max-width: 900px) {
-      .cards { grid-template-columns: 1fr; }
-    }
-
-    .card {
+    .cta {
+      margin-top: 30px;
+      padding: 16px;
       border: 1px solid #ddd;
       border-radius: 14px;
-      padding: 14px;
-      background: #fff;
-    }
-
-    .card h3 {
-      margin: 0 0 6px;
-      font-size: 16px;
-    }
-
-    .card p {
-      margin: 0;
-      color: #444;
-      line-height: 1.6;
-      font-size: 14.5px;
-    }
-
-    .links-row {
+      background: #fbfbfb;
       display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
       flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 10px;
     }
-
-    .pill {
-      display: inline-block;
-      padding: 8px 12px;
-      border: 1px solid #ddd;
-      border-radius: 999px;
-      text-decoration: none;
-      color: #111;
-      background: #fafafa;
-      font-size: 14px;
-    }
-
-    .pill:hover { background: #f2f2f2; }
-
-.cta {
-  margin-top: 30px;
-  padding: 16px;
-  border: 1px solid #ddd;
-  border-radius: 14px;
-  background: #fbfbfb;
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-
 
     .cta p {
       margin: 0;
@@ -192,16 +141,15 @@
     }
 
     @media (max-width: 480px) {
-  .cta p {
-    font-size: 15px;
-    line-height: 1.7;
-  }
+      .cta p {
+        font-size: 15px;
+        line-height: 1.7;
+      }
 
-  .quick-access {
-    margin-top: 12px;
-  }
-}
-
+      .quick-access {
+        margin-top: 12px;
+      }
+    }
 
     /* ===== Quick Access social icons (centered) ===== */
     .quick-access {
@@ -218,14 +166,13 @@
       text-align: center;
     }
 
-.social-icons {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;   /* was 14px */
-  align-items: center;
-  justify-content: center;
-}
-
+    .social-icons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      align-items: center;
+      justify-content: center;
+    }
 
     .social-icons a {
       text-decoration: none !important;
@@ -237,60 +184,59 @@
       border-radius: 10px;
     }
 
-.social-icons img {
-  width: 56px;
-  height: 56px;
-  object-fit: contain;
-  filter: grayscale(100%);
-  opacity: 0.78;
-  transition: all 0.25s ease;
-  display: block;
-}
+    .social-icons img {
+      width: 56px;
+      height: 56px;
+      object-fit: contain;
+      filter: grayscale(100%);
+      opacity: 0.78;
+      transition: all 0.25s ease;
+      display: block;
+    }
 
-
-.social-icons a:hover img {
-  filter: grayscale(0%);
-  opacity: 1;
-  transform: translateY(-5px); /* was -3px */
-}
+    .social-icons a:hover img {
+      filter: grayscale(0%);
+      opacity: 1;
+      transform: translateY(-5px);
+    }
 
     /* ===== Mobile optimization ===== */
-@media (max-width: 480px) {
+    @media (max-width: 480px) {
 
-  /* Slightly smaller icons on phones */
-  .social-icons img {
-    width: 46px;
-    height: 46px;
-  }
+      /* Slightly smaller icons on phones */
+      .social-icons img {
+        width: 46px;
+        height: 46px;
+      }
 
-  .social-icons {
-    gap: 14px;
-  }
+      .social-icons {
+        gap: 14px;
+      }
 
-  /* Stack CTA content and make button full-width */
-  .cta {
-    flex-direction: column;
-    align-items: stretch;
-  }
+      /* Stack CTA content and make button full-width */
+      .cta {
+        flex-direction: column;
+        align-items: stretch;
+      }
 
-  .cta .btn.primary {
-    width: 100%;
-    text-align: center;
-  }
-}
-@media (max-width: 480px) {
-  .hero-actions a {
-    width: 100%;
-    text-align: center;
-  }
-}
-@media (max-width: 480px) {
-  .social-icons a {
-    padding: 10px; /* increases tap target */
-  }
-}
+      .cta .btn.primary {
+        width: 100%;
+        text-align: center;
+      }
+    }
 
+    @media (max-width: 480px) {
+      .hero-actions a {
+        width: 100%;
+        text-align: center;
+      }
+    }
 
+    @media (max-width: 480px) {
+      .social-icons a {
+        padding: 10px; /* increases tap target */
+      }
+    }
   </style>
 </head>
 
@@ -350,48 +296,6 @@
         <li><strong>Decision support:</strong> integrates monitoring, modeling (e.g., SWMM), and machine learning to forecast performance and classify risk.</li>
         <li><strong>Scalable methods:</strong> designed for transferability across municipalities using environmental context (land cover/land use) and community vulnerability indicators.</li>
       </ul>
-    </div>
-  </section>
-
-  <!-- WHAT I WORK ON -->
-  <section class="section">
-    <h2>What I Work On</h2>
-    <div class="cards">
-      <div class="card">
-        <h3>Performance Forecasting</h3>
-        <p>
-          Develop machine-learning models to predict ponding duration and drawdown behavior under varied storm events using observed and simulated datasets.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>City-Scale Context &amp; Equity</h3>
-        <p>
-          Quantify how land cover, land use, and social vulnerability relate to GSI siting patterns and performance risk across diverse urban environments.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>Risk-Informed Management</h3>
-        <p>
-          Combine predicted performance with condition and sensitivity indicators to support inspection-informed risk alerts and maintenance decision-making.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- SELECTED OUTPUTS -->
-  <section class="section">
-    <h2>Selected Outputs</h2>
-    <p class="lead" style="margin-bottom: 8px;">
-      Quick access to research products and supporting materials.
-    </p>
-
-    <div class="links-row">
-      <a class="pill" href="publications.html">Publications</a>
-      <a class="pill" href="projects.html">Projects</a>
-      <a class="pill" href="membership.html">Professional Memberships</a>
-      <a class="pill" href="certifications.html">Certifications &amp; Training</a>
     </div>
   </section>
 
