@@ -4,6 +4,21 @@
   <meta charset="UTF-8">
   <title>Contact | Musfiqur Rahman</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* Optional: simple inline success/error styling */
+    .form-status {
+      margin-top: 12px;
+      padding: 10px 12px;
+      border-radius: 10px;
+      border: 1px solid #e5e5e5;
+      background: #fafafa;
+      font-weight: 700;
+      display: none;
+    }
+    .form-status.success { color: #2e7d32; border-color: #cfe9d5; background: #f2fbf4; }
+    .form-status.error { color: #b00020; border-color: #f3c2c7; background: #fff5f6; }
+    .btn[disabled] { opacity: 0.7; cursor: not-allowed; }
+  </style>
 </head>
 
 <body>
@@ -27,13 +42,6 @@
   For research collaboration, academic supervision, professional opportunities aligned with my research interests,
   speaking invitations, or general inquiries, please feel free to contact me using the form below.
 </p>
-
-<script>
-  const params = new URLSearchParams(window.location.search);
-  if (params.get("sent") === "true") {
-    document.write('<p style="color:#2e7d32; font-weight:bold;">Thank you! Your message has been sent successfully.</p>');
-  }
-</script>
 
 <div class="contact-grid">
 
@@ -81,11 +89,8 @@
 
     <h2>Contact Form</h2>
 
-    <!-- ✅ ONE working Formspree form -->
-    <form action="https://formspree.io/f/maqnzprb" method="POST">
-
-      <!-- Redirect back to success message -->
-      <input type="hidden" name="_redirect" value="https://musfiqurrahman.github.io/contact.html?sent=true">
+    <!-- ✅ No page navigation: handled by JS -->
+    <form id="contactForm">
 
       <!-- Honeypot spam trap -->
       <input type="text" name="_gotcha" style="display:none">
@@ -99,8 +104,9 @@
       <label for="message"><strong>Your Message</strong></label>
       <textarea id="message" name="message" rows="6" placeholder="Write your message" required></textarea>
 
-      <button type="submit" class="btn">Send Message</button>
+      <button id="submitBtn" type="submit" class="btn">Send Message</button>
 
+      <div id="formStatus" class="form-status"></div>
     </form>
 
   </div>
@@ -108,6 +114,54 @@
 </div>
 
 <div class="footer">© Musfiqur Rahman</div>
+
+<script>
+  const form = document.getElementById("contactForm");
+  const statusBox = document.getElementById("formStatus");
+  const submitBtn = document.getElementById("submitBtn");
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault(); // ✅ stop leaving the page
+
+    statusBox.style.display = "none";
+    statusBox.className = "form-status";
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Sending...";
+
+    try {
+      const formData = new FormData(form);
+
+      // ✅ Post to Formspree via AJAX
+      const response = await fetch("https://formspree.io/f/maqnzprb", {
+        method: "POST",
+        body: formData,
+        headers: { "Accept": "application/json" }
+      });
+
+      if (response.ok) {
+        // ✅ Show success + clear form
+        statusBox.textContent = "Thank you! Your message has been sent successfully.";
+        statusBox.classList.add("success");
+        statusBox.style.display = "block";
+        form.reset();
+      } else {
+        // Try to show useful error from Formspree
+        let data = {};
+        try { data = await response.json(); } catch (_) {}
+        statusBox.textContent = data?.error || "Sorry—something went wrong. Please try again or email me directly.";
+        statusBox.classList.add("error");
+        statusBox.style.display = "block";
+      }
+    } catch (err) {
+      statusBox.textContent = "Network error. Please try again or email me directly.";
+      statusBox.classList.add("error");
+      statusBox.style.display = "block";
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = "Send Message";
+    }
+  });
+</script>
 
 </body>
 </html>
