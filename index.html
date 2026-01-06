@@ -5,6 +5,7 @@
   <title>Musfiqur Rahman | Academic Portfolio</title>
   <meta name="description" content="Musfiqur Rahman is a PhD researcher at Villanova University specializing in artificial intelligence and machine learning applications for green stormwater infrastructure, urban hydrology, and infrastructure resilience.">
   <link rel="stylesheet" href="style.css">
+
   <style>
     .hero {
       display: grid;
@@ -13,32 +14,53 @@
       align-items: start;
       margin-top: 10px;
     }
-    .tagline {
-      font-size: 1.1em;
-      color: #444;
-      margin-top: 6px;
+
+    /* Top identity block */
+    .identity {
+      margin-top: 14px;
+      padding: 14px 16px;
+      border: 1px solid #e9e9e9;
+      border-radius: 12px;
+      background: #fbfbfb;
     }
     .role {
-      font-size: 1.1em;
-      font-weight: bold;
+      font-size: 1.05em;
+      font-weight: 800;
       color: #003366;
-      margin-bottom: 6px;
+      letter-spacing: 0.2px;
+      margin-bottom: 8px;
+    }
+    .identity .name {
+      font-size: 1.05em;
+      color: #333;
+      margin: 0;
+      line-height: 1.45;
+    }
+
+    .tagline {
+      font-size: 1.08em;
+      color: #444;
+      margin-top: 8px;
+      line-height: 1.6;
     }
     .intro {
       margin-top: 12px;
       font-size: 1.05em;
+      line-height: 1.7;
+      color: #333;
     }
+
     .photo {
       border: 1px solid #e5e5e5;
-      border-radius: 10px;
-      padding: 12px;
+      border-radius: 12px;
+      padding: 14px;
       text-align: center;
       background: #fafafa;
     }
     .photo img {
       width: 100%;
       max-width: 260px;
-      border-radius: 10px;
+      border-radius: 12px;
       display: block;
       margin: 0 auto 10px auto;
     }
@@ -46,29 +68,47 @@
       font-size: 0.95em;
       color: #666;
     }
-    .focus {
-      margin-top: 18px;
-      padding: 16px;
-      border: 1px solid #e5e5e5;
-      border-radius: 10px;
-      background: #ffffff;
-    }
-    .buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 16px;
-    }
-    .btn {
+
+    /* CV button only (under photo) */
+    .cv-btn {
       display: inline-block;
+      margin-top: 12px;
       padding: 10px 14px;
-      border-radius: 8px;
+      border-radius: 10px;
       border: 1px solid #cfe2ff;
       background: #eaf2ff;
       color: #003366;
-      font-weight: bold;
+      font-weight: 800;
+      text-decoration: none;
     }
-    .btn:hover { background: #dcebff; }
+    .cv-btn:hover { background: #dcebff; }
+
+    /* Featured “focus” card */
+    .focus {
+      margin-top: 18px;
+      padding: 18px 18px;
+      border-radius: 14px;
+      border: 1px solid #e6eefc;
+      background: linear-gradient(180deg, #f6f9ff 0%, #ffffff 100%);
+    }
+    .focus h2 {
+      margin-top: 0;
+      margin-bottom: 8px;
+      color: #003366;
+    }
+    .focus p {
+      margin: 0;
+      color: #333;
+      line-height: 1.7;
+      font-size: 1.03em;
+    }
+
+    .section { margin-top: 26px; }
+    .divider {
+      margin: 28px 0;
+      border: 0;
+      border-top: 1px solid #eee;
+    }
 
     .links {
       display: flex;
@@ -76,26 +116,39 @@
       gap: 12px;
       margin-top: 10px;
     }
-    .section {
+
+    /* Social icons: remove underline + spacing improvements */
+    .social-icons {
       margin-top: 26px;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
     }
-    .divider {
-      margin: 28px 0;
-      border: 0;
-      border-top: 1px solid #eee;
+    .social-icons a {
+      text-decoration: none !important;
+      border-bottom: none !important;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 6px;
+      border-radius: 10px;
     }
     .social-icons img {
-  filter: grayscale(100%);
-  opacity: 0.75;
-  transition: all 0.3s ease;
-}
-
-.social-icons a:hover img {
-  filter: grayscale(0%);
-  opacity: 1;
-  transform: translateY(-3px);
-}
-   
+      width: 44px;
+      height: 44px;
+      object-fit: contain;
+      filter: grayscale(100%);
+      opacity: 0.78;
+      transition: all 0.25s ease;
+      display: block;
+    }
+    .social-icons a:hover img {
+      filter: grayscale(0%);
+      opacity: 1;
+      transform: translateY(-3px);
+    }
   </style>
 </head>
 
@@ -114,47 +167,44 @@
   </nav>
 </header>
 
-<div class="role">Civil & Environmental Engineer</div>
+<!-- Identity block (top of page) -->
+<div class="identity">
+  <div class="role">Civil & Environmental Engineer</div>
+  <p class="name">
+    <strong>Musfiqur Rahman</strong><br>
+    PhD Researcher, Civil & Environmental Engineering<br>
+    Villanova University, USA
+  </p>
+</div>
 
-<p style="margin-top:6px; color:#555;">
-  <strong>Musfiqur Rahman</strong><br>
-  PhD Researcher, Civil & Environmental Engineering<br>
-  Villanova University, USA
-</p>
-
-  
 <div class="hero">
+  <!-- Left: Intro text -->
   <div>
     <h1>Hi, I’m Musfiqur Rahman.</h1>
+
     <p class="tagline">
       PhD Researcher at Villanova University focusing on artificial intelligence and machine learning
       to improve stormwater infrastructure performance and Green Stormwater Infrastructure (GSI).
     </p>
 
     <p class="intro">
-      My work develops data-driven models that integrate storm event characteristics, system design parameters,
-      environmental context, and inspection information to forecast GSI performance metrics
-      and support proactive maintenance and planning.
+      My research builds upon prior professional experience supporting large-scale water resources and
+      infrastructure projects, extending this work through artificial intelligence and machine learning
+      to improve stormwater system performance and resilience in the United States.
     </p>
-
-    <div class="buttons">
-      <!-- Replace cv.pdf with your actual CV file when you upload it -->
-      <a class="btn" href="cv.pdf" target="_blank">⬇ Download My CV</a>
-      <!-- Replace these links with your real profiles -->
-      <a class="btn" href="https://scholar.google.com" target="_blank">Google Scholar</a>
-      <a class="btn" href="https://www.linkedin.com" target="_blank">LinkedIn</a>
-      <a class="btn" href="https://github.com/MusfiqurRahman" target="_blank">GitHub</a>
-      <a class="btn" href="contact.html">Contact</a>
-    </div>
   </div>
 
+  <!-- Right: Photo + CV button -->
   <div class="photo">
-    <!-- Replace profile.jpg with your actual image filename after uploading -->
-    <img src="profile.jpg" alt="Musfiqur Rahman" style="border-radius: 12px; max-width: 240px;">
+    <img src="profile.jpg" alt="Musfiqur Rahman">
     <div class="caption">Photo of Musfiqur Rahman</div>
+
+    <!-- CV button under photo only -->
+    <a class="cv-btn" href="cv.pdf" target="_blank">⬇ Download My CV</a>
   </div>
 </div>
 
+<!-- Featured section -->
 <div class="focus">
   <h2>AI for Stormwater & Green Infrastructure Resilience</h2>
   <p>
@@ -163,6 +213,7 @@
   </p>
 </div>
 
+<!-- About Me (ONLY what you requested) -->
 <div class="section">
   <h2>About Me</h2>
   <p>
@@ -171,17 +222,13 @@
     environmental features, and apply machine learning models to generate actionable performance predictions and
     risk indicators for decision-making.
   </p>
-  <p>
-  Tools and methods I frequently use include Python for data processing and machine learning (e.g., XGBoost/LightGBM, support vector machines, and deep learning architectures), process-based hydrologic and hydraulic modeling using EPA SWMM, HEC-HMS, and HEC-RAS, and spatial analysis with ArcGIS and GIS-derived context variables to integrate physical system behavior with data-driven insights.
-  </p>
 
   <p>
-    My research builds upon prior professional experience supporting large-scale water resources and
-    infrastructure projects, extending this work through artificial intelligence and machine learning
-    to improve stormwater system performance and resilience in the United States.
+    Tools and methods I frequently use include Python for data processing and machine learning (e.g., XGBoost/LightGBM,
+    support vector machines, and deep learning architectures), process-based hydrologic and hydraulic modeling using
+    EPA SWMM, HEC-HMS, and HEC-RAS, and spatial analysis with ArcGIS and GIS-derived context variables to integrate
+    physical system behavior with data-driven insights.
   </p>
-
-  
 </div>
 
 <hr class="divider">
@@ -196,42 +243,33 @@
   </div>
 </div>
 
-<div class="social-icons" style="margin-top:30px; text-align:center;">
-  <a href="https://scholar.google.com/citations?user=E3F5M_8AAAAJ&hl=en" target="_blank">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Google_Scholar_logo.svg"
-         alt="Google Scholar" width="48">
+<!-- Social icons (no underline + better spacing) -->
+<div class="social-icons">
+  <a href="https://scholar.google.com/citations?user=E3F5M_8AAAAJ&hl=en" target="_blank" aria-label="Google Scholar">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Google_Scholar_logo.svg" alt="Google Scholar">
   </a>
 
-  <a href="https://www.linkedin.com/in/musfiqur37/" target="_blank">
-    <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png"
-         alt="LinkedIn" width="48">
+  <a href="https://www.linkedin.com/in/musfiqur37/" target="_blank" aria-label="LinkedIn">
+    <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn">
   </a>
 
-  <a href="https://www.researchgate.net/profile/Musfiqur-Rahman-20?ev=hdr_xprf" target="_blank">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/ResearchGate_icon_SVG.svg" alt="ResearchGate" width="48">
-
+  <a href="https://www.researchgate.net/profile/Musfiqur-Rahman-20?ev=hdr_xprf" target="_blank" aria-label="ResearchGate">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/ResearchGate_icon_SVG.svg" alt="ResearchGate">
   </a>
 
-  <a href="https://villanova.academia.edu/MusfiqurRahman" target="_blank">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/66/Academia-logo-2021.svg" alt="Academia.edu" width="48">
-
+  <a href="https://villanova.academia.edu/MusfiqurRahman" target="_blank" aria-label="Academia.edu">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/66/Academia-logo-2021.svg" alt="Academia.edu">
   </a>
 
-  <a href="https://github.com/MusfiqurRahman" target="_blank">
-  <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png"
-       alt="GitHub" width="48">
-</a>
+  <a href="https://github.com/MusfiqurRahman" target="_blank" aria-label="GitHub">
+    <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub">
+  </a>
 
-  
-  <a href="https://orcid.org/my-orcid?orcid=0009-0002-9865-6739" target="_blank">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/0/06/ORCID_iD.svg"
-         alt="ORCID" width="48">
+  <a href="https://orcid.org/0009-0002-9865-6739" target="_blank" aria-label="ORCID">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/0/06/ORCID_iD.svg" alt="ORCID">
   </a>
 </div>
 
-
-
-  
 <div class="footer">
   © 2026 Musfiqur Rahman. All rights reserved.
 </div>
