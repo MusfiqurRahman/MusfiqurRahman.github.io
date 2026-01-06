@@ -4,7 +4,43 @@
   <meta charset="UTF-8">
   <title>Membership | Musfiqur Rahman</title>
   <link rel="stylesheet" href="style.css">
+
+  <style>
+    .membership-container {
+      max-width: 900px;
+      margin: 40px auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 30px;
+      text-align: center;
+    }
+
+    .membership-card {
+      border: 1px solid #ddd;
+      padding: 20px;
+      border-radius: 8px;
+      background-color: #fafafa;
+    }
+
+    .membership-card img {
+      max-width: 120px;
+      height: auto;
+      margin-bottom: 15px;
+    }
+
+    .membership-card h3 {
+      margin: 10px 0 5px;
+      font-size: 18px;
+    }
+
+    .membership-card p {
+      margin: 0;
+      font-size: 14px;
+      color: #555;
+    }
+  </style>
 </head>
+
 <body>
 
 <header>
@@ -20,14 +56,37 @@
   </nav>
 </header>
 
-<h1>Professional Memberships</h1>
+<h1 style="text-align:center;">Professional Memberships</h1>
 
-<ul>
-  <li>American Geophysical Union (AGU)</li>
-  <li>American Society of Civil Engineers (ASCE)</li>
-  <li>EWRI – Environmental & Water Resources Institute</li>
-</ul>
+<div class="membership-container">
+
+  <div class="membership-card">
+    <img src="images/asce.png" alt="ASCE Logo">
+    <h3>American Society of Civil Engineers (ASCE)</h3>
+    <p>Student Member</p>
+  </div>
+
+  <div class="membership-card">
+    <img src="images/awwa.png" alt="AWWA Logo">
+    <h3>American Water Works Association (AWWA)</h3>
+    <p>Student Member</p>
+  </div>
+
+  <div class="membership-card">
+    <img src="images/ewri.png" alt="EWRI Logo">
+    <h3>Environmental & Water Resources Institute (EWRI)</h3>
+    <p>Student Member</p>
+  </div>
+
+  <div class="membership-card">
+    <img src="images/agu.png" alt="AGU Logo">
+    <h3>American Geophysical Union (AGU)</h3>
+    <p>Student Member</p>
+  </div>
+
+</div>
 
 <div class="footer">© Musfiqur Rahman</div>
+
 </body>
 </html>
