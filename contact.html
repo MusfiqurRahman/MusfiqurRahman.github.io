@@ -24,7 +24,8 @@
 <h1>Contact</h1>
 
 <p>
-  For research collaboration, academic supervision, professional opportunities aligned with my research interests, speaking invitations, or general inquiries, please feel free to contact me using the form below.
+  For research collaboration, academic supervision, professional opportunities aligned with my research interests,
+  speaking invitations, or general inquiries, please feel free to contact me using the form below.
 </p>
 
 <script>
@@ -32,8 +33,8 @@
   if (params.get("sent") === "true") {
     document.write('<p style="color:#2e7d32; font-weight:bold;">Thank you! Your message has been sent successfully.</p>');
   }
-</script>  
-  
+</script>
+
 <div class="contact-grid">
 
   <!-- LEFT COLUMN: INFO + MAP -->
@@ -43,33 +44,25 @@
       <a href="mailto:mrahma05@villanova.edu">mrahma05@villanova.edu</a>
     </p>
 
-    <p><strong>Affiliation:</strong>
-      Villanova University
-    </p>
+    <p><strong>Affiliation:</strong> Villanova University</p>
 
-    <p><strong>Research Group:</strong>
-      Villanova Center for Resilient Water Systems (VCRWS)
-    </p>
+    <p><strong>Research Group:</strong> Villanova Center for Resilient Water Systems (VCRWS)</p>
 
-    <p><strong>Department:</strong>
-      Civil & Environmental Engineering
-    </p>
+    <p><strong>Department:</strong> Civil &amp; Environmental Engineering</p>
 
     <p><strong>Google Scholar:</strong>
-      <a href="https://scholar.google.com/citations?user=AbCdEfG" target="_blank">
+      <a href="https://scholar.google.com/citations?user=AbCdEfG" target="_blank" rel="noopener">
         View Profile
       </a>
     </p>
 
     <p><strong>LinkedIn:</strong>
-      <a href="https://www.linkedin.com/in/musfiqur-rahman" target="_blank">
+      <a href="https://www.linkedin.com/in/musfiqur-rahman" target="_blank" rel="noopener">
         View Profile
       </a>
     </p>
 
-    <p><strong>Location:</strong>
-      Villanova University, Pennsylvania, USA
-    </p>
+    <p><strong>Location:</strong> Villanova University, Pennsylvania, USA</p>
 
     <h2 style="margin-top:24px;">Location — Villanova University</h2>
 
@@ -84,35 +77,31 @@
   </div>
 
   <!-- RIGHT COLUMN: FORM CARD -->
-  
-  
   <div class="contact-card">
 
     <h2>Contact Form</h2>
 
-    <!-- Visual form (can be connected later to Formspree / EmailJS) -->
-    <form>
+    <!-- ✅ ONE working Formspree form -->
+    <form action="https://formspree.io/f/maqnzprb" method="POST">
 
+      <!-- Redirect back to success message -->
+      <input type="hidden" name="_redirect" value="https://musfiqurrahman.github.io/contact.html?sent=true">
+
+      <!-- Honeypot spam trap -->
       <input type="text" name="_gotcha" style="display:none">
-
 
       <label for="name"><strong>Your Name</strong></label>
       <input type="text" id="name" name="name" placeholder="Enter your name" required>
 
-
       <label for="email"><strong>Your Email</strong></label>
       <input type="email" id="email" name="email" placeholder="Enter your email" required>
-
 
       <label for="message"><strong>Your Message</strong></label>
       <textarea id="message" name="message" rows="6" placeholder="Write your message" required></textarea>
 
-
       <button type="submit" class="btn">Send Message</button>
 
-    <form action="https://formspree.io/f/maqnzprb" method="POST">
-      
-    <input type="hidden" name="_redirect" value="https://musfiqurrahman.github.io/contact.html?sent=true">
+    </form>
 
   </div>
 
