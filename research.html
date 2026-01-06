@@ -1,12 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Research | Musfiqur Rahman</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
+  <meta charset="UTF-8" />
 
+  <!-- ✅ Mobile + responsive layout -->
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- ✅ SEO description -->
+  <meta name="description"
+        content="Research focus, methods, tools, and applications of Musfiqur Rahman in urban hydrology, stormwater systems, and AI-driven infrastructure planning." />
+
+  <title>Research | Musfiqur Rahman</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Page-only styles (keeps your global style.css untouched) -->
+  <style>
+    /* ✅ Main container + max-width */
+    .research-container{
+      max-width: 980px;
+      margin: 40px auto;
+      padding: 0 18px;
+    }
+
+    /* ✅ Hero box */
+    .research-hero{
+      background: rgba(0,0,0,0.03);
+      border: 1px solid rgba(0,0,0,0.10);
+      border-radius: 16px;
+      padding: 22px 18px;
+      margin-bottom: 18px;
+    }
+
+    .research-hero h1{
+      margin: 0 0 10px 0;
+      font-size: 34px;
+      line-height: 1.15;
+    }
+
+    .research-hero p{
+      margin: 0;
+      font-size: 16px;
+      line-height: 1.65;
+      opacity: 0.95;
+      max-width: 78ch;
+    }
+
+    /* ✅ Pills for focus areas */
+    .pill-row{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .pill{
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(0,0,0,0.12);
+      background: rgba(255,255,255,0.78);
+      font-size: 14px;
+      line-height: 1;
+      transition: transform .15s ease, box-shadow .15s ease;
+      will-change: transform;
+    }
+
+    .pill:hover{
+      transform: translateY(-1px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.10);
+    }
+
+    /* ✅ Cards layout */
+    .grid{
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      margin-top: 14px;
+    }
+
+    @media (min-width: 860px){
+      .grid{
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    /* ✅ Cards + subtle hover */
+    .card{
+      border: 1px solid rgba(0,0,0,0.10);
+      border-radius: 16px;
+      padding: 16px 16px;
+      background: #fff;
+      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+      will-change: transform;
+    }
+
+    .card:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 14px 30px rgba(0,0,0,0.10);
+      border-color: rgba(0,0,0,0.16);
+    }
+
+    .card h2{
+      margin: 0 0 10px 0;
+      font-size: 18px;
+    }
+
+    .card ul{
+      margin: 0;
+      padding-left: 18px;
+      line-height: 1.75;
+    }
+
+    .keywords{
+      margin-top: 10px;
+      font-size: 14px;
+      line-height: 1.7;
+      opacity: 0.95;
+    }
+
+    /* ✅ Accessibility: reduce motion if user prefers */
+    @media (prefers-reduced-motion: reduce){
+      .pill, .card{ transition: none; }
+      .pill:hover, .card:hover{
+        transform: none;
+        box-shadow: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
 <header>
   <nav>
     <a href="index.html">Home</a>
@@ -20,16 +144,74 @@
   </nav>
 </header>
 
-<h1>Research Focus</h1>
+<!-- ✅ Main container -->
+<main class="research-container">
 
-<ul>
-  <li>Urban hydrology</li>
-  <li>Urban Water Systems</li>
-  <li>Hydrologic & Hydraulic Modeling</li>
-  <li>AI for Stormwater</li>
-  <li>Stormwater Infrastructure & Green Stormwater Infrastructure resilience</li>
-  <li>Data-driven infrastructure planning</li>
-</ul>
+  <!-- ✅ Hero + one-line research statement -->
+  <section class="research-hero">
+    <h1>Research</h1>
+    <p>
+      My research integrates machine learning with hydrologic and hydraulic modeling to advance
+      data-driven, scalable frameworks for assessing and improving the performance and resilience
+      of urban stormwater infrastructure.
+    </p>
+
+    <!-- ✅ Pills -->
+    <div class="pill-row" aria-label="Research focus areas">
+      <span class="pill">Urban Hydrology</span>
+      <span class="pill">Urban Water Systems</span>
+      <span class="pill">Hydrologic &amp; Hydraulic Modeling</span>
+      <span class="pill">Artificial Intelligence for Stormwater</span>
+      <span class="pill">Stormwater Infrastructure &amp; GSI Resilience</span>
+      <span class="pill">Data-Driven Infrastructure Planning</span>
+    </div>
+  </section>
+
+  <!-- ✅ Cards -->
+  <section class="grid">
+
+    <article class="card">
+      <h2>Research Methods &amp; Approaches</h2>
+      <ul>
+        <li>Hydrologic and hydraulic simulation modeling (e.g., SWMM, HEC-RAS, MIKE platforms)</li>
+        <li>Machine Learning and Artificial Intelligence for water resource prediction and optimization</li>
+        <li>Statistical analysis, time-series modeling, and uncertainty quantification</li>
+        <li>Spatial and geospatial analytics integrating GIS and urban datasets</li>
+        <li>Integration of monitoring data, remote sensing, and model outputs for decision support</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <h2>Tools &amp; Technologies</h2>
+      <ul>
+        <li><strong>Python</strong> (NumPy, Pandas, scikit-learn)</li>
+        <li>Machine learning and AI frameworks: TensorFlow, PyTorch</li>
+        <li>GIS and spatial tools: ArcGIS, QGIS</li>
+        <li>Hydrologic and hydraulic models: SWMM, HEC-HMS, HEC-RAS</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <h2>Applications</h2>
+      <ul>
+        <li>Predictive modeling of urban flooding and stormwater system response</li>
+        <li>Performance assessment and risk classification of Green Stormwater Infrastructure</li>
+        <li>Data-driven planning and prioritization of stormwater investments</li>
+        <li>Climate-adaptive and resilient urban water infrastructure design</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <h2>Keywords</h2>
+      <p class="keywords">
+        <strong>Urban Flood Modeling</strong> · Stormwater Resilience · Machine Learning in Water Systems ·
+        Green Infrastructure Analytics · Hydrologic Simulation · Geospatial Data · Uncertainty Analysis · Decision Support
+      </p>
+    </article>
+
+  </section>
+
+</main>
 
 <div class="footer">© Musfiqur Rahman</div>
 </body>
