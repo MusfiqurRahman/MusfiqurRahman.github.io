@@ -2,9 +2,54 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Album | Musfiqur Rahman</title>
+  <title>Professional Activities | Musfiqur Rahman</title>
   <link rel="stylesheet" href="style.css">
+
+  <style>
+    .album-container {
+      max-width: 900px;
+      margin: 40px auto;
+    }
+
+    .album-intro {
+      font-size: 16px;
+      color: #444;
+      margin-bottom: 30px;
+    }
+
+    .album-categories {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin-bottom: 30px;
+    }
+
+    .album-category {
+      padding: 8px 16px;
+      border-radius: 20px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+      background-color: #f9f9f9;
+    }
+
+    .album-section {
+      margin-bottom: 35px;
+    }
+
+    .album-section h2 {
+      font-size: 20px;
+      margin-bottom: 10px;
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 6px;
+    }
+
+    .album-section p {
+      font-size: 15px;
+      color: #555;
+    }
+  </style>
 </head>
+
 <body>
 
 <header>
@@ -20,17 +65,56 @@
   </nav>
 </header>
 
-<h1>Photo Album</h1>
+<h1 style="text-align:center;">Professional & Research Activities</h1>
 
-<p>
-Selected moments from conferences, fieldwork, and academic activities.
-</p>
+<div class="album-container">
 
-<ul>
-  <li>AGU Fall Meeting</li>
-  <li>Field monitoring & site visits</li>
-</ul>
+  <p class="album-intro">
+    This section documents selected professional and research-related activities,
+    including conference participation, field investigations, technical workshops,
+    and academic engagement beyond the classroom.
+  </p>
+
+  <!-- Category Tags -->
+  <div class="album-categories">
+    <span class="album-category">Field Investigations</span>
+    <span class="album-category">Conferences & Presentations</span>
+    <span class="album-category">Workshops & Training</span>
+    <span class="album-category">Academic Engagement</span>
+  </div>
+
+  <!-- Conference Section -->
+  <div class="album-section">
+    <h2>Conferences & Scholarly Meetings</h2>
+    <p>
+      Participation in national and international conferences, including oral and poster
+      presentations, technical sessions, and professional networking activities
+      related to water resources, stormwater management, and environmental data science.
+    </p>
+  </div>
+
+  <!-- Fieldwork Section -->
+  <div class="album-section">
+    <h2>Field Monitoring & Site Investigations</h2>
+    <p>
+      Documentation of field-based research activities, including stormwater infrastructure
+      monitoring, site inspections, and data collection efforts supporting hydrologic
+      and infrastructure performance analysis.
+    </p>
+  </div>
+
+  <!-- Additional Section -->
+  <div class="album-section">
+    <h2>Workshops & Professional Development</h2>
+    <p>
+      Selected workshops, short courses, and collaborative activities that contribute
+      to technical skill development and interdisciplinary research engagement.
+    </p>
+  </div>
+
+</div>
 
 <div class="footer">© Musfiqur Rahman</div>
+
 </body>
 </html>
