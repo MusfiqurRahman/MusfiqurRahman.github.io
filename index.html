@@ -65,9 +65,7 @@
       font-size: 14px;
     }
 
-    .btn:hover {
-      background: #f2f2f2;
-    }
+    .btn:hover { background: #f2f2f2; }
 
     .btn.primary {
       border-color: #111;
@@ -75,13 +73,9 @@
       color: #fff;
     }
 
-    .btn.primary:hover {
-      background: #222;
-    }
+    .btn.primary:hover { background: #222; }
 
-    .hero-right {
-      text-align: center;
-    }
+    .hero-right { text-align: center; }
 
     .profile-pic {
       width: 210px;
@@ -99,9 +93,7 @@
       line-height: 1.4;
     }
 
-    .section {
-      margin-top: 34px;
-    }
+    .section { margin-top: 34px; }
 
     .section h2 {
       margin: 0 0 12px;
@@ -197,6 +189,55 @@
       color: #333;
       line-height: 1.6;
     }
+
+    /* ===== Quick Access social icons (centered) ===== */
+    .quick-access {
+      margin-top: 14px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .quick-access h3 {
+      margin: 0 0 10px;
+      font-size: 15px;
+      color: #111;
+      letter-spacing: 0.2px;
+      text-align: center;
+    }
+
+    .social-icons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items: center;
+      justify-content: center; /* centers the icons */
+    }
+
+    .social-icons a {
+      text-decoration: none !important;
+      border-bottom: none !important;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 6px;
+      border-radius: 10px;
+    }
+
+    .social-icons img {
+      width: 42px;
+      height: 42px;
+      object-fit: contain;
+      filter: grayscale(100%);
+      opacity: 0.78;
+      transition: all 0.25s ease;
+      display: block;
+    }
+
+    .social-icons a:hover img {
+      filter: grayscale(0%);
+      opacity: 1;
+      transform: translateY(-3px);
+    }
   </style>
 </head>
 
@@ -222,7 +263,7 @@
     <div class="hero-left">
       <h1>Musfiqur Rahman</h1>
       <p class="subtitle">
-        PhD Researcher | AI/ML for Stormwater & Green Stormwater Infrastructure (GSI) Performance | Villanova University
+        PhD Researcher | AI/ML for Stormwater &amp; Green Stormwater Infrastructure (GSI) Performance | Villanova University
       </p>
 
       <p class="lead">
@@ -241,7 +282,7 @@
     <div class="hero-right">
       <img class="profile-pic" src="profile.jpg" alt="Musfiqur Rahman portrait">
       <div class="affil">
-        Civil & Environmental Engineering<br>
+        Civil &amp; Environmental Engineering<br>
         Villanova University • Pennsylvania, USA
       </div>
     </div>
@@ -249,7 +290,7 @@
 
   <!-- IMPACT -->
   <section class="section">
-    <h2>Impact & Relevance</h2>
+    <h2>Impact &amp; Relevance</h2>
     <div class="impact-box">
       <ul>
         <li><strong>Urban resilience:</strong> supports proactive screening and maintenance prioritization for stormwater assets to reduce flood and nuisance ponding risk.</li>
@@ -271,7 +312,7 @@
       </div>
 
       <div class="card">
-        <h3>City-Scale Context & Equity</h3>
+        <h3>City-Scale Context &amp; Equity</h3>
         <p>
           Quantify how land cover, land use, and social vulnerability relate to GSI siting patterns and performance risk across diverse urban environments.
         </p>
@@ -294,24 +335,51 @@
     </p>
 
     <div class="links-row">
-      <!-- Replace the # links with your actual URLs (recommended) -->
       <a class="pill" href="publications.html">Publications</a>
       <a class="pill" href="projects.html">Projects</a>
       <a class="pill" href="membership.html">Professional Memberships</a>
-      <a class="pill" href="certifications.html">Certifications & Training</a>
-      <!-- Optional external links (add if you have them) -->
-      <!-- <a class="pill" href="https://scholar.google.com/citations?user=YOURID" target="_blank" rel="noopener noreferrer">Google Scholar</a> -->
-      <!-- <a class="pill" href="https://orcid.org/YOUR-ORCID" target="_blank" rel="noopener noreferrer">ORCID</a> -->
-      <!-- <a class="pill" href="https://github.com/YOURUSERNAME" target="_blank" rel="noopener noreferrer">GitHub</a> -->
+      <a class="pill" href="certifications.html">Certifications &amp; Training</a>
     </div>
   </section>
 
-  <!-- CTA -->
+  <!-- CTA + QUICK ACCESS ICONS -->
   <section class="cta">
-    <p>
-      For research collaboration, academic opportunities, or stormwater modeling and data-science roles,
-      feel free to reach out.
-    </p>
+    <div style="flex: 1 1 520px;">
+      <p>
+        For research collaboration, academic opportunities, or stormwater modeling and data-science roles,
+        feel free to reach out.
+      </p>
+
+      <div class="quick-access">
+        <h3>Quick Access</h3>
+        <div class="social-icons">
+          <a href="https://scholar.google.com/citations?user=E3F5M_8AAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Google_Scholar_logo.svg" alt="Google Scholar">
+          </a>
+
+          <a href="https://www.linkedin.com/in/musfiqur37/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn">
+          </a>
+
+          <a href="https://www.researchgate.net/profile/Musfiqur-Rahman-20?ev=hdr_xprf" target="_blank" rel="noopener noreferrer" aria-label="ResearchGate">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/ResearchGate_icon_SVG.svg" alt="ResearchGate">
+          </a>
+
+          <a href="https://villanova.academia.edu/MusfiqurRahman" target="_blank" rel="noopener noreferrer" aria-label="Academia.edu">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/66/Academia-logo-2021.svg" alt="Academia.edu">
+          </a>
+
+          <a href="https://github.com/MusfiqurRahman" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub">
+          </a>
+
+          <a href="https://orcid.org/0009-0002-9865-6739" target="_blank" rel="noopener noreferrer" aria-label="ORCID">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/0/06/ORCID_iD.svg" alt="ORCID">
+          </a>
+        </div>
+      </div>
+    </div>
+
     <a class="btn primary" href="contact.html">Get in touch</a>
   </section>
 
