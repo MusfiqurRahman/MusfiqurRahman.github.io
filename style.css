@@ -285,4 +285,9 @@ nav a.active{
   }
 }
 
+.cert-item .role {
+  font-weight: 600;
+  color: #004a99;
+}
+
 
