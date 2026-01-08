@@ -220,4 +220,52 @@ nav a.active{
   margin-top: 14px;
 }
 
+/* ===== Hover popup for project titles (no layout change) ===== */
+.hover-project{
+  position: relative;
+  display: inline-block;
+  cursor: default;
+}
+
+/* Popup card */
+.hover-project .hover-card{
+  position: absolute;
+  top: 0;
+  left: calc(100% + 14px);
+  width: min(560px, 72vw);
+  max-height: 72vh;
+  overflow: auto;
+
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.15);
+  border-radius: 12px;
+  padding: 14px 14px 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(6px);
+  transition: opacity 0.15s ease, transform 0.15s ease, visibility 0.15s ease;
+
+  z-index: 999;
+  line-height: 1.45;
+  font-size: 14px;
+}
+
+/* Show on hover */
+.hover-project:hover .hover-card{
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* Mobile behavior */
+@media (max-width: 900px){
+  .hover-project .hover-card{
+    left: 0;
+    top: calc(100% + 10px);
+    width: min(600px, 92vw);
+  }
+}
+
 
