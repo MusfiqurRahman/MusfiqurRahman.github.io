@@ -220,48 +220,65 @@ nav a.active{
   margin-top: 14px;
 }
 
-/* ===== Hover popup for project titles (no layout change) ===== */
+/* ===== Hover popup for project titles (professional tint + readability) ===== */
 .hover-project{
   position: relative;
   display: inline-block;
-  cursor: default;
 }
 
-/* Popup card */
+/* Popup card — hidden by default */
 .hover-project .hover-card{
+  display: none;                 /* 🔒 prevents showing in page flow */
   position: absolute;
   top: 0;
-  left: calc(100% + 14px);
+  left: calc(100% + 14px);       /* slightly to the right */
   width: min(560px, 72vw);
   max-height: 72vh;
   overflow: auto;
 
-  background: #fff;
+  /* 🎨 Subtle professional tint */
+  background: #fafafa;
+
   border: 1px solid rgba(0,0,0,0.15);
   border-radius: 12px;
-  padding: 14px 14px 16px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  padding: 16px 18px 18px;
+  box-shadow: 0 12px 32px rgba(0,0,0,0.18);
 
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(6px);
-  transition: opacity 0.15s ease, transform 0.15s ease, visibility 0.15s ease;
-
-  z-index: 999;
-  line-height: 1.45;
+  /* ✍️ Text styling */
+  color: #2f2f2f;               /* softer than pure black */
   font-size: 14px;
+  line-height: 1.55;
+
+  z-index: 9999;
 }
 
-/* Show on hover */
+/* Show popup on hover */
 .hover-project:hover .hover-card{
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
+  display: block;
 }
 
-/* Mobile behavior */
+/* Improve internal readability */
+.hover-card strong{
+  color: #111;                  /* section headings */
+}
+
+.hover-card span{
+  color: #666;                  /* metadata (institution/date) */
+}
+
+.hover-card em{
+  color: #555;
+  font-style: italic;
+}
+
+/* Optional: smoother scroll for long text */
+.hover-card{
+  scrollbar-width: thin;
+}
+
+/* Mobile behavior: show below instead of right */
 @media (max-width: 900px){
-  .hover-project .hover-card{
+  .hover-project:hover .hover-card{
     left: 0;
     top: calc(100% + 10px);
     width: min(600px, 92vw);
