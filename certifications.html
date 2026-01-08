@@ -539,18 +539,28 @@
     if (e.key === "Escape") closeModal();
   });
 
-  // Toolbar zoom
+    // Toolbar zoom (allow zoom-out below 1)
+  const MIN_SCALE = 0.1;   // <-- change to 0.4 if you want more zoom-out
+  const MAX_SCALE = 6;
+
+  function clampScale(s) {
+    // avoid floating-point weirdness like 0.9999999
+    const rounded = Math.round(s * 1000) / 1000;
+    return Math.min(MAX_SCALE, Math.max(MIN_SCALE, rounded));
+  }
+
   zoomInBtn.addEventListener("click", () => {
-    scale = Math.min(6, scale * 1.2);
+    scale = clampScale(scale * 1.2);
     applyTransform();
   });
 
   zoomOutBtn.addEventListener("click", () => {
-    scale = Math.max(1, scale / 1.2);
+    scale = clampScale(scale / 1.2);
     applyTransform();
   });
 
   resetBtn.addEventListener("click", resetZoom);
+
 
   // Pinch + Pan (Pointer Events)
   zoomStage.addEventListener("pointerdown", (e) => {
@@ -594,7 +604,7 @@
       const dist = Math.hypot(pts[0].x - pts[1].x, pts[0].y - pts[1].y);
       if (startDist > 0) {
         const ratio = dist / startDist;
-        scale = Math.min(6, Math.max(1, startScale * ratio));
+        scale = Math.min(MAX_SCALE, Math.max(MIN_SCALE, startScale * ratio));
         applyTransform();
       }
     }
