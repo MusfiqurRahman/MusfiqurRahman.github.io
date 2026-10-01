@@ -2,7 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Musfiqur Rahman Digital Card</title>
+
   <style>
     body {
       margin: 0;
@@ -26,8 +28,8 @@
 
     .cover {
       position: absolute;
-      background: #d7ece7; /* match card background */
-      border-radius: 6px;
+      background: #c9eee7;
+      border-radius: 4px;
     }
 
     .text {
@@ -36,77 +38,64 @@
     }
 
     .name {
-      top: 35px;
+      top: 32px;
       left: 40px;
       font-size: 42px;
       font-weight: bold;
     }
 
-    .title {
-      top: 100px;
+    .line1 {
+      top: 96px;
       left: 40px;
       font-size: 30px;
     }
 
-    .dept {
-      top: 150px;
+    .line2 {
+      top: 146px;
       left: 40px;
       font-size: 28px;
     }
 
-    .inst {
-      top: 200px;
+    .line3 {
+      top: 196px;
       left: 40px;
       font-size: 30px;
     }
 
-    .email {
-      top: 345px;
-      left: 130px;
-      font-size: 26px;
-    }
-
-    .linkedin {
-      top: 415px;
-      left: 130px;
-      font-size: 26px;
-    }
-
-    .website {
-      top: 485px;
-      left: 130px;
-      font-size: 26px;
-    }
-
-    .research {
-      top: 700px;
+    .line4 {
+      top: 242px;
       left: 40px;
-      font-size: 24px;
+      font-size: 26px;
+    }
+
+    .email {
+      top: 316px;
+      left: 125px;
+      font-size: 26px;
     }
   </style>
 </head>
+
 <body>
   <div class="card-wrap">
-    <img src="https://musfiqurrahman.github.io/images/Musfiqur_Rahman_Digital_Card.png" alt="Digital card background">
 
-    <!-- Cover old text areas -->
-    <div class="cover" style="top: 20px; left: 20px; width: 1120px; height: 280px;"></div>
-    <div class="cover" style="top: 330px; left: 120px; width: 950px; height: 230px;"></div>
-    <div class="cover" style="top: 680px; left: 20px; width: 1050px; height: 90px;"></div>
+    <img src="https://musfiqurrahman.github.io/images/Musfiqur_Rahman_Digital_Card.png" alt="Musfiqur Rahman digital card background">
 
-    <!-- New text -->
+    <!-- Cover old top information -->
+    <div class="cover" style="top: 18px; left: 18px; width: 1085px; height: 285px;"></div>
+
+    <!-- Cover old email only -->
+    <div class="cover" style="top: 300px; left: 115px; width: 760px; height: 55px;"></div>
+
+    <!-- New updated text -->
     <div class="text name">Musfiqur Rahman, Ph.D.</div>
-    <div class="text title">Postdoctoral Research Associate</div>
-    <div class="text dept">Department of Engineering</div>
-    <div class="text inst">Texas A&amp;M University–Corpus Christi</div>
+    <div class="text line1">Postdoctoral Research Associate</div>
+    <div class="text line2">Department of Engineering</div>
+    <div class="text line3">Texas A&amp;M University–Corpus Christi</div>
+    <div class="text line4">Corpus Christi, Texas, USA</div>
 
     <div class="text email">musfiqur.rahman@tamucc.edu</div>
-    <div class="text linkedin">linkedin.com/in/musfiqur37/</div>
-    <div class="text website">musfiqurrahman.github.io/card.html</div>
 
-    <div class="text research">
-      Water Resources | Stormwater Modeling | Urban &amp; Coastal Flooding | GSI | Resilience
-    </div>
   </div>
 </body>
 </html>
