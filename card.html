@@ -112,5 +112,39 @@
     <div class="text email">musfiqur.rahman@tamucc.edu</div>
 
   </div>
+
+  </div>
+
+  <button id="downloadBtn"
+          style="
+            margin-top: 20px;
+            padding: 10px 18px;
+            font-size: 16px;
+            cursor: pointer;
+          ">
+    Download PNG
+  </button>
+
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+
+  <script>
+    document.getElementById("downloadBtn").addEventListener("click", function () {
+      const card = document.querySelector(".card-wrap");
+
+      html2canvas(card, {
+        scale: 2,
+        useCORS: true
+      }).then(function (canvas) {
+        const link = document.createElement("a");
+        link.download = "Musfiqur_Rahman_Digital_Card.png";
+        link.href = canvas.toDataURL("image/png");
+        link.click();
+      });
+    });
+  </script>
+
+</body>
+</html>
+
 </body>
 </html>
