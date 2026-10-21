@@ -16,12 +16,14 @@
   <!-- Page-only styles (keeps your global style.css untouched) -->
   <style>
     /* ✅ Main container + max-width */
-    .research-container{
-      max-width: 980px;
-      margin: 40px auto;
-      padding: 0 18px;
-    }
-
+/* UPDATED: Responsive fluid-width research container */
+.research-container{
+  width: 100%;
+  max-width: none;
+  box-sizing: border-box;
+  margin: 40px auto;
+  padding: 0 18px;
+}
     /* ✅ Hero box */
     .research-hero{
       background: rgba(0,0,0,0.03);
