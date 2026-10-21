@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,14 +10,14 @@
 
   <style>
     /* Page layout helpers */
-/* UPDATED: Responsive fluid-width container */
-.container {
-  width: 100%;
-  max-width: none;
-  box-sizing: border-box;
-  margin: 0 auto;
-  padding: 26px 18px;
-}
+    /* UPDATED: Responsive fluid-width container */
+    .container {
+      width: 100%;
+      max-width: none;
+      box-sizing: border-box;
+      margin: 0 auto;
+      padding: 26px 18px;
+    }
 
     /* ===== HERO BACKGROUND BANNER (NEW) ===== */
     .hero-banner{
@@ -197,6 +198,59 @@
       font-size: 15px;
     }
 
+    /* =====================================================
+       NEW SECTION 1: NEWS & UPDATES CSS
+       ===================================================== */
+    .news-box{
+      border: 1px solid #ddd;
+      background: #fbfbfb;
+      border-radius: 14px;
+      padding: 10px 18px;
+    }
+
+    .news-item{
+      display: grid;
+      grid-template-columns: 100px minmax(0, 1fr);
+      gap: 16px;
+      padding: 14px 0;
+      align-items: start;
+    }
+
+    .news-item + .news-item{
+      border-top: 1px solid #e6e6e6;
+    }
+
+    .news-date{
+      color: #666;
+      font-size: 14px;
+      padding-top: 2px;
+    }
+
+    .news-content strong{
+      display: block;
+      color: #222;
+      font-size: 16px;
+    }
+
+    .news-content p{
+      margin: 4px 0 0;
+      color: #555;
+      line-height: 1.55;
+      font-size: 14px;
+    }
+
+    .news-content a{
+      color: #0066cc;
+    }
+
+    @media (max-width: 480px){
+      .news-item{
+        grid-template-columns: 1fr;
+        gap: 4px;
+      }
+    }
+    /* ===== END NEW NEWS CSS ===== */
+
     /* CTA */
     .cta{
       margin-top: 30px;
@@ -360,6 +414,56 @@ Corpus Christi, Texas, USA<br>
       </ul>
     </div>
   </section>
+
+  <!-- =====================================================
+       NEW SECTION 2: NEWS & UPDATES HTML
+       Inserted after National Impact & Applications
+       and before Contact + Quick Access
+       ===================================================== -->
+  <section class="section" aria-labelledby="news-heading">
+    <h2 id="news-heading">News &amp; Updates</h2>
+
+    <div class="news-box">
+
+      <!-- News Item 1: Journal publication -->
+      <div class="news-item">
+        <div class="news-date">Oct 2026</div>
+        <div class="news-content">
+          <strong>New systematic review published</strong>
+          <p>
+            Frontiers in Sustainability ·
+            <a href="https://doi.org/10.3389/frsus.2026.1966241"
+               target="_blank"
+               rel="noopener noreferrer">Read article ↗</a>
+          </p>
+        </div>
+      </div>
+
+      <!-- News Item 2: TAMU-CC postdoctoral appointment -->
+      <div class="news-item">
+        <div class="news-date">Sep 2026</div>
+        <div class="news-content">
+          <strong>Joined Texas A&amp;M University–Corpus Christi</strong>
+          <p>
+            Postdoctoral Research Associate, Civil Engineering<br>
+            <a href="https://www.wesalab.com/team-members"
+               target="_blank"
+               rel="noopener noreferrer">WESA Lab — Team Members ↗</a>
+          </p>
+        </div>
+      </div>
+
+      <!-- News Item 3: PhD completion -->
+      <div class="news-item">
+        <div class="news-date">Sep 2026</div>
+        <div class="news-content">
+          <strong>Completed PhD at Villanova University</strong>
+        </div>
+      </div>
+
+    </div>
+  </section>
+  <!-- ===== END NEWS & UPDATES HTML ===== -->
 
   <!-- CTA + QUICK ACCESS ICONS -->
   <section class="cta">
