@@ -1,6 +1,9 @@
+/* UPDATED: Responsive, fluid-width website layout */
 body{
   font-family: Arial, sans-serif;
-  max-width: 1000px;
+  width: 94%;
+  max-width: none;
+  box-sizing: border-box;
   margin: 40px auto;
   line-height: 1.6;
   color:#333;
